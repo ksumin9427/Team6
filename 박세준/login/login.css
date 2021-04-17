@@ -16,8 +16,8 @@ header{
 /* 제목영역안에 있는 메인 로고 이미지 위치 지정 */
 #logo{
     position: absolute;
-    top: 30px;
-    left: 30px;
+    top: 7px;
+    left: 7px;
  
 }
  
