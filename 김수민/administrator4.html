@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            /* border: 1px solid #ccc; */
+            padding: 50px;
+            margin-bottom: 60px;
+            
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+       
+        #container{           
+            margin-bottom: 50px;          
+        }
+
+        #logo{
+        position: absolute;
+        width: 100px;
+        top: 7px;
+        left: 7px;       
+        }
+
+        #header{         
+            margin: -50px;
+            margin-top: -30px;
+            margin-bottom: 20px;
+            margin-left: 0px;
+            margin-right: 0px;
+            padding: 5px 15px;
+            position: relative;
+            border-bottom: 2px solid #ccc;
+        }
+        
+        #header ul li{
+            display: inline-block;
+            margin: 10px;
+            margin-bottom: 5px;
+            
+        }
+        #header ul li a{
+           font-size: 21px;                       
+        }
+       
+        #nav{
+            margin-bottom: 20px;
+            width: 180px;
+            float: left;
+            margin-right: 20px;
+            padding: 10px;
+            
+            
+        }
+        #nav ul li a{
+            font-size: 20px;
+            
+        }
+       
+        #contents{
+            /* position: absolute; */
+            margin: 60px;
+            width: 700px;
+            float: left;
+            padding-top: 30px;
+            /* height: 800px; */
+            /* top: 300px; */
+            
+           
+        }
+        table{
+            width: 100%;
+            border-top: 1px solid  #ccc;
+            border-bottom:1px solid  #ccc;
+            border-collapse: collapse;
+            padding: 0px;
+
+        }
+        td{
+            border-bottom: 1px solid  #ccc; 
+                   }
+        #footer{
+            clear: both;
+            padding: 0px;
+            margin: 10px;
+          
+        }
+        #navititlebottomline{
+            border-bottom-style: solid;
+            border-bottom-width: 2px;
+            padding-bottom: 10px;
+        }
+        
+        .contentsborderline{
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+            
+        }
+        
+
+        div .updowntitleline{
+            height: 1px;
+            margin: 3px;
+            padding: 30px;
+        }
+        .updowntitleline{
+            /* position: relative; */
+            border-top: 2px solid #000;
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            border-left: 1px solid #ccc;
+            background: rgb(213, 213, 213);
+            height: 1px;
+        }
+        .boardtitle{
+            text-align: right;
+        }
+        
+        .boardroute{
+            position: absolute;
+            width: 300px;
+            height: 1px;
+            font-size: 15px;
+            margin: 0px;
+            text-align: left;
+            right: 140px;
+            top: 210px;
+
+        }
+        div h1{
+            position: absolute;
+            top: 220px;
+            margin: 30px;
+            left: 330px;
+        }
+        .beforeafterboardtitle{
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+         
+    </style>
+</head>
+<body>
+    <div id="container">
+
+        <div id="header" class="navi">
+            
+            <ul>
+                <img src="images/logo.jpg" class="logo">
+                <li><a href="#">사용자 관리</a></li>               
+                <li><a href="#">강의 관리</a></li>              
+                <li><a href="#">게시판 관리</a></li>    
+                <li><a href="#">홈페이지 관리</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="nav" >
+            <ul> 
+                <p><h3 id="navititlebottomline">게시판 관리</h3></p>
+                <p><li><a href="#">공지사항 관리</a></li></p>
+                 <li><a href="#">FAQ 관리</a></li>               
+             </ul>
+        </div>
+
+    
+
+        <div id="contents" class="contentsborderline" >
+            <p><h2>공지사항</h2></p>
+            <div class="boardroute">게시판관리 - 공지사항 </div>
+            <div class="updowntitleline", class="boardtitle">              
+            코로나 관련 공지사항 안내  [2021-03-01]     
+            </div>
+
+
+            <p>여러분이 대학에 첫발을 내디딘 지금 코로나 19 상황으로 인해 
+                학업과 대학생활에 대한 우려가 있으리라 생각합니다. <br>
+                그러나 너무 걱정하거나 염려하지는 마십시오. 여러분은 우리대학교에서 혁신적이고 미래지향적인 교육과정을 경험하게 될 것입니다. <br>
+                비록 기숙사에 입사하지는 못하지만, 여러분은 체계적이고 다양한 RC 교육을 받을 수 있습니다. </p>    
+            <p>쌍방향으로 실시간 소통하고 교류하며 동영상과 프로젝트 등을 통해 직접 참여하는 학습역량 지원 프로그램과 진로심리상담체제 등이 이미 마련되어 있습니다. <br>
+                RC 공동체에서 학문과 미래, 사회의 여러 문제에 대해 함께 토론하고 이해하면서 차이를 존중하고 다른 사람을 배려하며 공감하고 소통하는 방법을 익히게 될 것입니다.<br>
+            <p> 첫 학기를 전면 비대면 온라인 수업으로 진행하지만, 여러분은 미래 대학교육을 위한 혁신 기반으로 우리대학교가 준비한 뉴미디어·디지털 교육을 경험할 수 있을 것입니다.
+                 가상공간을 활용하여 전 세계인과 소통하고, 이를 통해 글로벌 인재로 성장할 수 있는 역량을 키워나갈 것입니다.</p>   
+            <p>우리대학교는 새로운 발전과 강의혁신을 위한 의욕에 차 있지만, 부득이 2학기 중간고사기간까지는 모든 수업을 전면 
+                온라인수업으로 전환하기로 결정하였습니다. 중간시험 또한 비대면 평가로 진행하며, 2학기 모든 과목에 절대평가를 허용합니다. 
+                중간고사 이후 수업계획은 코로나-19 감염병의 상황을 고려하여 10월 12일(월)에 공지할 예정입니다.</p>
+                
+               <p><table>
+                <tr><td>이전글 [코로나19 관련] 양 캠퍼스 체육시설 및 학생회관 이용 안내 [2021-02-27]</td></tr>
+                <tr><td>다음글 [코로나19] 코로나19 예방접종 이렇게 실시됩니다. [2021-03-03]</td></tr>
+                </table></p>   
+                
+            </div>
+            
+
+        <div id="footer">
+            <center>
+                <ul>
+                    <li>부산 부산진구 중앙대로 688</li>
+                    <li>TEL : 051-912-1000</li>
+                    <li><a href="#">사이트 운영원칙</a></li>
+                    <li><a href="#"><strong>개인정보취급방침</strong></a></li>
+                </ul>
+                <address>
+                    Copyright ©
+                    <a href="http://GG.co.kr"><strong>가산대학교</strong></a>
+                    All Rights Reserved.
+            </center>
+        </div>
+
+    </div>
+</body>
+</html>
