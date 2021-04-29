@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="model" id="E96651ED-FE9C-7695-161E-C884D2B6D2F8" version="3.5">
+<createdBy>garam</createdBy>
+<createdTime>2021-04-28 05:43:00 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>E96651ED-FE9C-7695-161E-C884D2B6D2F8</designId>
+</OSDM_Design>
