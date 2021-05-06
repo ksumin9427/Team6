@@ -1,3 +1,4 @@
+<%@page import="member.STUDENT_VO"%>
 <%@page import="member.MemberDBBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -5,10 +6,16 @@
 	String id = request.getParameter("id");
 	String pwd = request.getParameter("pwd");
 	MemberDBBean db = MemberDBBean.getInstance();
+	STUDENT_VO student;
+	String s_name;
 	
 	int check = db.userCheck(id, pwd);
 	if(check == 1){ //학생 
+		student = db.getStudent(id);
+		s_name = student.getS_name();
+		System.out.println("@@@@@@@"+s_name);
 		session.setAttribute("id", id);
+		session.setAttribute("name", s_name);
 		response.sendRedirect("hhma01R.jsp?code="+check);
 	}else if(check == 2){ //교수 
 		session.setAttribute("id", id);

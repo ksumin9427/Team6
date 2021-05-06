@@ -3,9 +3,11 @@
 <%
 	int code=0;
 	String id=null;
+	String name=null;
 	if(request.getParameter("code") != null){ //세션으로 하니까 오류남 
 		code = Integer.parseInt(request.getParameter("code"));
 		id = (String)session.getAttribute("id");
+		name = (String)session.getAttribute("name");
 	}
 %>
 <html>
@@ -30,7 +32,7 @@
                     <%
                     	}else{
                     %>
-	                		<li><a href="#">LOGOUT</a></li>
+	                		<li><a href="hhlg0103R.jsp">LOGOUT</a></li>
                     <%
                     	}
                    		if(code == 1){
