@@ -102,7 +102,9 @@
 				stmt = con.createStatement();
 				rs = stmt.executeQuery(selectQuery);
 				
-				int x=1;
+				int x=1, sub_num=0, score=0, score_sum=0;
+				double sub_ave=0;
+				
 				while(rs.next()){
 					if(x==1){
 		%>
@@ -125,7 +127,45 @@
 		<%
 						x=1;
 					}
+					
+					sub_num++;
+					char sco = rs.getString("c_score").charAt(0);
+					
+					switch (sco) {
+					case 'A':
+						score = 4;
+						break;
+					case 'B':
+						score = 3;
+						break;
+					case 'C':
+						score = 2;
+						break;
+					case 'D':
+						score = 1;
+						break;
+
+					default:
+						score = 0;
+						break;
+					}
+					
+					score_sum += score;
 				}
+				
+				sub_ave = (double)score_sum/sub_num;
+		%>
+				<tr bgcolor="#00ff90">
+					<td colspan="2"><h4>총 취득 과목</h4></td>
+					<td><h4>전체 평균 평점</h4></td>
+					<td><h4>백분율</h4></td>
+				</tr>
+				<tr>
+					<td colspan="2"><%= sub_num %> </td>
+					<td><%= sub_ave %> </td>
+					<td><%= sub_ave*25 %> </td>				
+				</tr>			
+		<%				
 			}catch(SQLException se){
 				se.printStackTrace();
 			}finally{
