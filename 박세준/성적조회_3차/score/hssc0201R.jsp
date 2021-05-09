@@ -1,3 +1,7 @@
+<%@page import="java.util.Calendar"%>
+<%@page import="java.util.Locale"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
@@ -6,6 +10,26 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%
+	SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat ( "yyyy-MM-dd", Locale.KOREA );
+	Date currentDate = new Date();
+	String oTime = mSimpleDateFormat.format(currentDate);
+	Date startDate = mSimpleDateFormat.parse("2021-03-01");
+	Date endDate = mSimpleDateFormat.parse("2021-09-01");
+	currentDate = mSimpleDateFormat.parse(oTime);
+	
+	int comp1 = currentDate.compareTo(startDate);
+	int comp2 = currentDate.compareTo(endDate);
+	
+	int c_sem;
+	
+	if((comp1>0||comp1==0) && comp2<0){
+		c_sem = 1;
+	}else{
+		c_sem = 2;
+	}
+	
+	int c_year = Calendar.getInstance().get(Calendar.YEAR);
+	
 	Connection con=null;
 	Statement stmt=null;
 	ResultSet rs=null;
@@ -15,9 +39,9 @@
 	String url="jdbc:oracle:thin:@localhost:1521:xe";
 	String user="team6";
 	String password="1234";
-	String selectQuery="select c_year, c_lno, c_score, c_sem"
+	String selectQuery="select c_year, lecture_l_no, c_score, c_sem"
 			+ " from score"
-			+ " where c_stuno = " + c_stuno
+			+ " where student_s_no = " + c_stuno + " and c_sem = " + c_sem + " and c_year = " + c_year
 			+ " order by c_year, c_sem";
 %>
 <html lang="en">
@@ -111,7 +135,7 @@
 						<tr>
 							<td><%= rs.getInt("c_year") %> </td>
 							<td><%= rs.getInt("c_sem") %> </td>
-							<td><%= rs.getInt("c_lno") %> </td>
+							<td><%= rs.getInt("lecture_l_no") %> </td>
 							<td><%= rs.getString("c_score") %> </td>				
 						</tr>
 		<%
@@ -121,13 +145,13 @@
 						<tr bgcolor="#def7f1">
 							<td><%= rs.getInt("c_year") %> </td>
 							<td><%= rs.getInt("c_sem") %> </td>
-							<td><%= rs.getInt("c_lno") %> </td>
+							<td><%= rs.getInt("lecture_l_no") %> </td>
 							<td><%= rs.getString("c_score") %> </td>				
 						</tr>
 		<%
 						x=1;
 					}
-					
+
 					sub_num++;
 					char sco = rs.getString("c_score").charAt(0);
 					
@@ -165,7 +189,7 @@
 					<td><%= sub_ave %> </td>
 					<td><%= sub_ave*25 %> </td>				
 				</tr>			
-		<%				
+		<%			
 			}catch(SQLException se){
 				se.printStackTrace();
 			}finally{
