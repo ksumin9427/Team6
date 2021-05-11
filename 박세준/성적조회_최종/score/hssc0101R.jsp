@@ -15,9 +15,9 @@
 	String url="jdbc:oracle:thin:@localhost:1521:xe";
 	String user="team6";
 	String password="1234";
-	String selectQuery="select c_year, lecture_l_no, c_score, c_sem"
-			+ " from score"
-			+ " where student_s_no = " + c_stuno
+	String selectQuery="select c_year, lecture_l_no, c_score, c_sem, l_com, l_name, l_unit"
+			+ " from score, lecture"
+			+ " where lecture_l_no = l_no and student_s_no = " + c_stuno
 			+ " order by c_year, c_sem";
 	String selectQuery2="select c_year, c_score, c_sem, l_unit"
 			+ " from score, lecture"
@@ -90,8 +90,8 @@
         	
     </header>
     
-    
-    <table width="800" border="1" style="margin-left: auto;margin-right: auto;margin-top: 100px;margin-bottom: 50px;">
+	<h1 align="center" style="margin-left: auto;margin-right: auto;margin-top: 100px;margin-bottom: 0px;">전체 성적조회</h1>
+    <table width="800" border="1" style="margin-left: auto;margin-right: auto;margin-top: 50px;margin-bottom: 50px;">
 		<tr bgcolor="#00ff90">
 			<td><h4>년도</h4></td>
 			<td><h4>학기</h4></td>
@@ -302,10 +302,13 @@
 	</table>
     <table width="800" border="1" style="margin-left: auto;margin-right: auto;margin-top: 50px;margin-bottom: 50px;">
 		<tr bgcolor="#00ff90">
-			<td><h4>년도</h4></td>
-			<td><h4>학기</h4></td>
-			<td><h4>학수번호</h4></td>
-			<td><h4>성적</h4></td>
+			<td width="100"><h4>년도</h4></td>
+			<td width="50"><h4>학기</h4></td>
+			<td width="150"><h4>이수구분</h4></td>
+			<td width="150"><h4>학수번호</h4></td>
+			<td width="250"><h4>교과목명</h4></td>
+			<td width="50"><h4>학점</h4></td>
+			<td width="50"><h4>성적</h4></td>
 		</tr>
 		<%
 			try{
@@ -314,15 +317,37 @@
 				stmt = con.createStatement();
 				rs = stmt.executeQuery(selectQuery);
 				
+				int x=1;
+				
 				while(rs.next()){
+					if(x==1){						
 		%>
-					<tr>
-						<td><%= rs.getInt("c_year") %> </td>
-						<td><%= rs.getInt("c_sem") %> </td>
-						<td><%= rs.getInt("lecture_l_no") %> </td>
-						<td><%= rs.getString("c_score") %> </td>				
-					</tr>
+						<tr>
+							<td><%= rs.getInt("c_year") %> </td>
+							<td><%= rs.getInt("c_sem") %> </td>
+							<td><%= rs.getString("l_com") %> </td>
+							<td><%= rs.getInt("lecture_l_no") %> </td>
+							<td><%= rs.getString("l_name") %> </td>
+							<td><%= rs.getInt("l_unit") %> </td>
+							<td><%= rs.getString("c_score") %> </td>				
+						</tr>
 		<%
+						x=0;
+					}
+					else{						
+		%>
+						<tr bgcolor="#def7f1">
+							<td><%= rs.getInt("c_year") %> </td>
+							<td><%= rs.getInt("c_sem") %> </td>
+							<td><%= rs.getString("l_com") %> </td>
+							<td><%= rs.getInt("lecture_l_no") %> </td>
+							<td><%= rs.getString("l_name") %> </td>
+							<td><%= rs.getInt("l_unit") %> </td>
+							<td><%= rs.getString("c_score") %> </td>				
+						</tr>
+		<%
+						x=1;
+					}
 				}				
 			}catch(SQLException se){
 				se.printStackTrace();
