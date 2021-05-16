@@ -59,7 +59,7 @@
 						if(bs_fname==null){
 							out.println("<p>첨부파일 없음</p>");
 						}else{
-							out.println("<p>첨부파일 "+"<a href='hsbo0601W.jsp?fileN="+bs_id+"'>"+bs_fname+"</a></p>");
+							out.println("<p>첨부파일 "+"<a href='hmbo0105W.jsp?fileN="+bs_id+"'>"+bs_fname+"</a></p>");
 						}
 					%>
 				</td>
@@ -74,9 +74,9 @@
 			</tr>
 			<tr>
 				<td colspan="4" align="right" >
-					<input type="button" value="글삭제" onclick="location.href='hsbo0401W.jsp?bs_id=<%= bs_id %>&pageNum=<%= pageNum %>'" >
+					<input type="button" value="글삭제" onclick="location.href='hmbo0103W.jsp?bs_id=<%= bs_id %>&pageNum=<%= pageNum %>'" >
 					&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="button" value="글목록" onclick="location.href='hsbo0101R.jsp?pageNum=<%= pageNum %>'" >
+					<input type="button" value="글목록" onclick="location.href='hmbo0101R.jsp?pageNum=<%= pageNum %>'" >
 				</td>
 			</tr>
 		</table>

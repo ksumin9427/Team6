@@ -20,7 +20,7 @@
 			File file=new File(up+fname);
 			file.delete();
 		}
-		response.sendRedirect("hpbo0101R.jsp");
+		response.sendRedirect("hmbo0201R.jsp");
 	}else{
 %>
 		<script language="JavaScript" >

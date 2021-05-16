@@ -1,8 +1,8 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.Timestamp"%>
-<%@page import="board.BoardBean2"%>
+<%@page import="board.BoardBean"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="board.BoardDBBean2"%>
+<%@page import="board.BoardDBBean"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%
@@ -11,11 +11,11 @@
 		pageNum = "1";
 	}
 	
-	BoardDBBean2 db=BoardDBBean2.getInstance();
-	ArrayList<BoardBean2> boardList = db.listBoard(pageNum);
-	int i, bp_id, bp_hit, bp_level, bp_fsize;
-	String bp_name, bp_email, bp_title, bp_fname;
-	Timestamp bp_date;
+	BoardDBBean db=BoardDBBean.getInstance();
+	ArrayList<BoardBean> boardList = db.listBoard(pageNum);
+	int i, bs_id, bs_hit, bs_level, bs_fsize;
+	String bs_name, bs_email, bs_title, bs_fname;
+	Timestamp bs_date;
 	
 	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm");
 %>
@@ -61,8 +61,8 @@
             </li>
             <li><a href="#">게시판 관리</a>
                 <ul class="sub-ul">
-                    <li><a href="hsbo0101R.jsp">학생게시판</a></li>
-                    <li><a href="hpbo0101R.jsp">교수게시판</a></li>
+                    <li><a href="hmbo0101R.jsp">학생게시판</a></li>
+                    <li><a href="hmbo0201R.jsp">교수게시판</a></li>
                     <li><a href="#">공지사항</a></li>
                 </ul>
             </li>
@@ -77,7 +77,7 @@
 
 
 	<center>
-		<h1 align="center" style="margin-left: auto;margin-right: auto;margin-top: 100px;margin-bottom: 50px;">교수 게시판</h1>
+		<h1 align="center" style="margin-left: auto;margin-right: auto;margin-top: 100px;margin-bottom: 50px;">학생 게시판</h1>
 
 		<table width="800" border="1" cellspacing="0" >
 			<tr>
@@ -90,26 +90,26 @@
 			</tr>
 			<%
 				for(i=0; i<boardList.size(); i++){
-					BoardBean2 board = boardList.get(i);
-					bp_id = board.getBp_id();
-					bp_title = board.getBp_title();
-					bp_name = board.getBp_name();
-					bp_email = board.getBp_email();
-					bp_date = board.getBp_date();
-					bp_hit = board.getBp_hit();
-					bp_level = board.getBp_level();
-					bp_fname = board.getBp_fname();
-					bp_fsize = board.getBp_fsize();
+					BoardBean board = boardList.get(i);
+					bs_id = board.getbs_id();
+					bs_title = board.getbs_title();
+					bs_name = board.getbs_name();
+					bs_email = board.getbs_email();
+					bs_date = board.getbs_date();
+					bs_hit = board.getbs_hit();
+					bs_level = board.getbs_level();
+					bs_fname = board.getbs_fname();
+					bs_fsize = board.getbs_fsize();
 			%>
 					<tr bgcolor="#f7f7f7" 
 						onmouseover="this.style.backgroundColor='#eeeeef'" 
 						onmouseout="this.style.backgroundColor='#f7f7f7'">
 						<td align="center">
-							<%= bp_id %>
+							<%= bs_id %>
 						</td>
 						<td>
 							<%
-								if(bp_fsize > 0){
+								if(bs_fsize > 0){
 							%>
 									<img src="../images/zip.gif">
 							<%
@@ -118,8 +118,8 @@
 						</td>
 						<td>
 							<%
-								if(bp_level > 0){
-									for(int j=0; j< bp_level; j++){
+								if(bs_level > 0){
+									for(int j=0; j< bs_level; j++){
 							%>
 										&nbsp;
 							<%
@@ -129,16 +129,16 @@
 							<%
 								}
 							%>
-							<a href="hpbo0301R.jsp?bp_id=<%= bp_id %>&pageNum=<%= pageNum %>"><%= bp_title %></a>
+							<a href="hmbo0102R.jsp?bs_id=<%= bs_id %>&pageNum=<%= pageNum %>"><%= bs_title %></a>
 						</td>
 						<td align="center">
-							<a href="mailto:<%= bp_email %>"><%= bp_name %></a>
+							<a href="mailto:<%= bs_email %>"><%= bs_name %></a>
 						</td>
 						<td align="center">
-							<%= sdf.format(bp_date) %>
+							<%= sdf.format(bs_date) %>
 						</td>
 						<td align="center">
-							<%= bp_hit %>
+							<%= bs_hit %>
 						</td>
 					</tr>
 			<%
@@ -149,7 +149,7 @@
 	<br>
 	<br>
 	<center>
-		<%= BoardBean2.pageNumber(4) %>
+		<%= BoardBean.pageNumber(4) %>
 	</center>
 	
 	<footer>
