@@ -25,7 +25,7 @@
 				<tr>
 					<td colspan="2">
 						<input type="submit" value="글삭제">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="button" value="글목록" onclick="location.href='hpbo0101R.jsp?pageNum=<%= pageNum %>'">
+						<input type="button" value="글목록" onclick="location.href='hmbo0201R.jsp?pageNum=<%= pageNum %>'">
 					</td>
 				</tr>
 			</table>
