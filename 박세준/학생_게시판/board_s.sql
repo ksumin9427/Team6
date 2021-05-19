@@ -8,7 +8,7 @@ CREATE TABLE board_s (
     bs_content  VARCHAR2(3000),
     bs_pwd      VARCHAR2(12),
     bs_date     DATE,
-    bs_hit      NUMBER(5),
+    bs_hit      NUMBER(5) default 0,
     bs_ip       VARCHAR2(15),
     bs_ref      NUMBER(5),
     bs_step     NUMBER(5),
