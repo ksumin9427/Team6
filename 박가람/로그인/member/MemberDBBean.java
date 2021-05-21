@@ -83,12 +83,12 @@ public class MemberDBBean {
 		}
 		return re;
 	}
-	public STUDENT_VO getStudent(String id) {
+	public StudentBean getStudent(String id) {
 		Connection con = null;	
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = null;
-		STUDENT_VO student = null;
+		StudentBean student = null;
 		
 		try {
 			con = getConnection();
@@ -97,7 +97,7 @@ public class MemberDBBean {
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				student = new STUDENT_VO();
+				student = new StudentBean();
 				student.setS_no(rs.getInt(1));
 				student.setS_pwd(rs.getString(2));
 				student.setS_name(rs.getString(3));
@@ -122,12 +122,12 @@ public class MemberDBBean {
 		}
 		return student;
 	}
-	public PROF_VO getProf(String id) {
+	public ProfessorBean getProf(String id) {
 		Connection con = null;	
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = null;
-		PROF_VO prof = null;
+		ProfessorBean prof = null;
 		
 		try {
 			con = getConnection();
@@ -136,7 +136,7 @@ public class MemberDBBean {
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				prof = new PROF_VO();
+				prof = new ProfessorBean();
 				prof.setP_no(rs.getInt(1));
 				prof.setP_pwd(rs.getString(2));
 				prof.setP_name(rs.getString(3));

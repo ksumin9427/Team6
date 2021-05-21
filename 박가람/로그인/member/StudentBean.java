@@ -1,6 +1,6 @@
 package member;
 
-public class STUDENT_VO {
+public class StudentBean {
 
 	   private int s_no;
 	   private String s_pwd;

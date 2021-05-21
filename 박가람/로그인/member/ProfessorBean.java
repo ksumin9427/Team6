@@ -1,6 +1,6 @@
 package member;
 
-public class PROF_VO {
+public class ProfessorBean {
 	private int p_no;
 	private String p_pwd;
 	private String p_name;
