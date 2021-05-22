@@ -61,14 +61,13 @@
    </nav>
     </header>
 <%
-//String name =(String) session.getAttribute("stu_name");  //세션에 등록된 이름을 가져옴
-	//if(name==null) response.sendRedirect("hhlg01W"); //세션에서 가져온 값이 null(없다)면~ 로그인 페이지로 던짐
+
 	
-	//String num = (String) session.getAttribute("stu_no");  //세션에 등록된 학번을 가져옴
-	String name = "이순신";                                   
-	int num = 8452;
+	String num = (String) session.getAttribute("id");  //세션에 등록된 학번을 가져옴
+	if(num==null) response.sendRedirect("hhlg01W"); //세션에서 가져온 값이 null(없다)면~ 로그인 페이지로 던짐
 	StudentDBBean dao = StudentDBBean.getInstance();
-	StudentBean stu = dao.getMemberInfo(num);    //정보변경 메서드 호출
+	StudentBean stu = dao.getMemberInfo(Integer.parseInt(num));    //정보변경 메서드 호출
+	String name = stu.getS_name();
 %>
 
 <br />
