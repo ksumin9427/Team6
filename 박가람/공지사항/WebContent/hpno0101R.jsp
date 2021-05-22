@@ -12,8 +12,8 @@
 	}
 	
 	NoticeDBBean db = NoticeDBBean.getInstance();
-	ArrayList<NoticeBean> noticeList = db.listStudentNotice(pageNum);
-	int i, n_no, n_hit, n_fsize, number=0;
+	ArrayList<NoticeBean> noticeList = db.listProfessorNotice(pageNum);
+	int i, n_no, n_hit, n_fsize,number=0;
 	String n_div, n_name, n_title, n_fname;
 	Timestamp n_date;
 	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm");
@@ -64,7 +64,7 @@
 						</td>
 					<td><%= n_div %></td>
 					<td>
-						<a href="hmno0104R.jsp?n_no=<%= n_no %>&pageNum=<%= pageNum %>&code=1"><%= n_title %></a>
+						<a href="hmno0104R.jsp?n_no=<%= n_no %>&pageNum=<%= pageNum %>&code=2"><%= n_title %></a>
 					</td>
 					<td><%= n_name %></td>
 					<td><%= sdf.format(n_date) %></td>

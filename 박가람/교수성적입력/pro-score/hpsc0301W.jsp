@@ -6,7 +6,9 @@
 	int l_no = Integer.parseInt(request.getParameter("l_no"));
 	ScoreDBBean db = ScoreDBBean.getInstance();
 	
-	db.insertScore(l_no);
+	if(db.insertScore(l_no) ==1){
+		response.sendRedirect("hpsc0101R.jsp");
+	}
 %>
 <html>
 <head>

@@ -327,6 +327,7 @@ public class NoticeDBBean {
 		return notice;
 	}
 	
+	//구분:학생 공지사항 
 	public ArrayList<NoticeBean> listStudentNotice(String pageNumber) {
 		ArrayList<NoticeBean> noticeList = new ArrayList<NoticeBean>();
 		Connection con = null;
@@ -392,6 +393,86 @@ public class NoticeDBBean {
 				}
 			}
 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if (rs != null) rs.close();
+				if (stmt != null) stmt.close();
+				if (con != null) con.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return noticeList;
+	}
+	
+	//구분:교수 공지사항 
+	public ArrayList<NoticeBean> listProfessorNotice(String pageNumber) {
+		ArrayList<NoticeBean> noticeList = new ArrayList<NoticeBean>();
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		ResultSet pageSet=null;
+		int dbCount = 0; //글의 개수 
+		int absolutePage=1;
+		
+		try {
+			con = getConnection();
+			
+			stmt = con.createStatement();
+			pageSet = stmt.executeQuery("select count(n_no) from notice where n_div='교수'"); //교수글의 개수 구하기 
+			
+			if(pageSet.next()) {
+				dbCount = pageSet.getInt(1);
+				pageSet.close(); 
+				stmt.close();
+			}
+			if(dbCount % NoticeBean.pageSize == 0) {
+				NoticeBean.pageCount = dbCount / NoticeBean.pageSize;
+			}else {
+				NoticeBean.pageCount = dbCount / NoticeBean.pageSize + 1;
+			}
+			
+			if (pageNumber != null) {
+				NoticeBean.pageNum = Integer.parseInt(pageNumber);
+				absolutePage =(NoticeBean.pageNum-1) * NoticeBean.pageSize +1;
+			}
+			
+			stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			String sql = "select * from notice where n_div='교수' order by n_no desc";
+			rs = stmt.executeQuery(sql);
+			
+			if (rs.next()) {
+				rs.absolute(absolutePage); //absolute 지정한 위치로 이동 
+				int count = 0;
+				
+				while(count < NoticeBean.pageSize) {
+					NoticeBean notice = new NoticeBean();
+					notice.setN_no(rs.getInt(1));
+					notice.setN_div(rs.getNString(2));
+					notice.setN_name(rs.getString(3));
+					notice.setN_email(rs.getString(4));
+					notice.setN_title(rs.getString(5));
+					notice.setN_content(rs.getString(6));
+					notice.setN_pwd(rs.getString(7));
+					notice.setN_date(rs.getTimestamp(8));
+					notice.setN_hit(rs.getInt(9));
+					notice.setN_fname(rs.getString(10));
+					notice.setN_fsize(rs.getInt(11));
+					notice.setN_rfname(rs.getString(12));
+					
+					noticeList.add(notice);
+					
+					if (rs.isLast()) { //결과값 마지막이면 while문 빠져나감 
+						break;
+					}else {
+						rs.next();
+					}
+					count++;
+				}
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {

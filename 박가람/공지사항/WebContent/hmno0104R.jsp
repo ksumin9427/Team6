@@ -7,8 +7,13 @@
 <%
 	int code=0;
 	if(request.getParameter("code") != null){
+		if(Integer.parseInt(request.getParameter("code")) == 1){
 		code = 1;
+		}else if(Integer.parseInt(request.getParameter("code")) == 2){
+			code = 2;
+			}
 	}
+	System.out.println("######### code ="+code);
 	String pageNum = request.getParameter("pageNum");
 	int n_no = Integer.parseInt(request.getParameter("n_no")); //글번호 가져옴 
 	
@@ -78,6 +83,10 @@
 					if(code == 1){
 				%>
 					<input type="button" value="글목록" onclick="location.href='hsno0101R.jsp?pageNum=<%= pageNum %>'"> 
+				<%
+					}else if(code == 2){
+				%>
+					<input type="button" value="글목록" onclick="location.href='hpno0101R.jsp?pageNum=<%= pageNum %>'"> 
 				<%
 					}else{
 				%>

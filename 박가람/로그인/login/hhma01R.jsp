@@ -41,11 +41,11 @@
                     <%
                    		}else if(code == 2){
                     %>
-	                		<li><a href="#">교직원페이지로</a></li>
+	                		<li><a href="../pro-score/profe.html">교직원페이지로</a></li>
                     <%
                    		}else if(code == 3){
                     %>
-        	                <li><a href="#">관리자페이지로</a></li>
+        	                <li><a href="../notice/hmma01R.html">관리자페이지로</a></li>
                     <%
                    		}
                     %>
@@ -89,37 +89,6 @@
                 </ul>
             <!-- </nav> -->
     
-           <!-- <nav> -->
-            <ul class="main-ul">
-                <li><a href="#">학적</a>
-                    <ul class="sub-ul">
-                        <li><a href="#">학적사항</a></li>
-                        <li><a href="#">개인정보수정</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">수업</a>
-                    <ul class="sub-ul">
-                        <li><a href="#">강좌조회</a></li>
-                        <li><a href="#">수강신청</a></li>
-                        <li><a href="#">수강신청 확인/정정</a></li>
-                        <li><a href="#">시간표조회</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">성적</a>
-                    <ul class="sub-ul">
-                        <li><a href="#">현학기 성적조회</a></li>
-                        <li><a href="#">전체 성적조회</a></li>
-                    </ul>
-                </li>
-    
-                <li><a href="#">게시판</a>
-                    <ul class="sub-ul">
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">자유게시판</a></li>
-                    </ul>
-                </li>
-            </ul>
-        <!-- </nav> -->
         </header>
 
  
