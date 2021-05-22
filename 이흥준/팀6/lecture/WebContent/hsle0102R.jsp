@@ -1,12 +1,12 @@
-<%@page import="lecture.lecturebean"%>
+<%@page import="lecture.LectureBean"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="lecture.lectureDBbean"%>
+<%@page import="lecture.LectureDBBean"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
- <%  		  
- 		request.setCharacterEncoding("EUC-KR");
- 		String selectke =request.getParameter("selectke"); 
- 	    String lecturename =request.getParameter("lecturename");
+ <%
+ 	request.setCharacterEncoding("EUC-KR");
+   		String selectke =request.getParameter("selectke"); 
+   	    String lecturename =request.getParameter("lecturename");
  %>
 <html>
 <head>
@@ -130,14 +130,14 @@
                             <td>이수구분</td>
                         </tr>
             <%
-          		 // String selectke =request.getParameter("selectke"); 
-        		 // String lecturename =request.getParameter("lecturename");
-        	      lectureDBbean ldb = lectureDBbean.getinstance();
-        	      ArrayList<lecturebean> list = ldb.listKeywords(selectke, lecturename);
-                        for(int i=0;i<list.size();i++){
-                        	lecturebean llb = list.get(i);
-                       			if(i%2==1){
-%>
+            	// String selectke =request.getParameter("selectke"); 
+                                		 // String lecturename =request.getParameter("lecturename");
+                                	      lecture.LectureDBBean ldb = lecture.LectureDBBean.getinstance();
+                                	      ArrayList<lecture.LectureBean> list = ldb.listKeywords(selectke, lecturename);
+                                                for(int i=0;i<list.size();i++){
+                                                	lecture.LectureBean llb = list.get(i);
+                                               			if(i%2==1){
+            %>
                         <tr class="lhover">
                             <td><%=llb.getL_no()%></td>
 							<td><%=llb.getL_name()%></td>

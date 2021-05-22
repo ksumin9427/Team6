@@ -1,13 +1,13 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="lecture.lecturebean"%>
-<%@page import="lecture.lectureDBbean"%>
+<%@page import="lecture.LectureBean"%>
+<%@page import="lecture.LectureDBBean"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%
 	//나중에 여기서 아이디섹션을 받아올 예정입니다.
 %>
 <%
-	int s_no=1;
+	int s_no=20180001;
 %>
 <html>
 <head>
@@ -118,23 +118,10 @@
 	                        
 	                            &nbsp;&nbsp;&nbsp; <strong>개설과목 검색</strong>&nbsp;
 	                            <select id="luni01" name="major_no" >
-	                            	<optgroup label="아시아대학">
-		                                <option value="1">일본어전공</option>
-		                                <option value="2">중국어전공</option>
-		                                <option value="3">베트남전공</option>
-		                            </optgroup>
-		                            <optgroup label="경영대학">    
-		                                <option value="4">경영학전공</option>
-		                                <option value="5">회계전공</option>
-		                            </optgroup>
-		                            <optgroup label="유럽대학">
-		                                <option value="6">프랑스전공</option>
-		                                <option value="7">이탈리아전공</option>
-		                                <option value="8">독일어전공</option>
-		                             </optgroup> 
-	                            </select>
+		                                <option value="11">컴퓨터공학과</option>
+		                                <option value="12">재료학과</option>
+		                                <option value="13">체육학과</option>
 	                            <a class="button" onclick="click_ok()">검색</a>  
-	                        
                         </form>
                           
                     </div>
@@ -192,11 +179,11 @@
                                 <td>비고</td>
                             </tr>
                               <%
-                              	lecture.lectureDBbean dbbean=lecture.lectureDBbean.getinstance();
-                                                                                         ArrayList<lecture.lecturebean> view= dbbean.viewlecture(s_no);
-                                                            																for(int i=0;i<view.size();i++){
-                                                                    																	lecture.lecturebean lb = view.get(i);
-                                                                    																	if(i%2==1){
+                              	lecture.LectureDBBean dbbean=lecture.LectureDBBean.getinstance();
+                                                                                                                                                     ArrayList<lecture.LectureBean> view= dbbean.viewlecture(s_no);
+                                                                                                                        																for(int i=0;i<view.size();i++){
+                                                                                                                                																	lecture.LectureBean lb = view.get(i);
+                                                                                                                                																	if(i%2==1){
                               %>
 								<tr class="lhover">				
                                 <td><a class="button"  onclick="location.href='hsle0203W.jsp?l_no=<%=lb.getL_no()%>&major_no=<%=lb.getMajor_no()%>'">삭제</a></td>

@@ -1,4 +1,4 @@
-<%@page import="lecture.lectureDBbean"%>
+<%@page import="lecture.LectureDBBean"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%
@@ -7,7 +7,7 @@
 	//삭제할부분.
 	int l_no = Integer.parseInt(request.getParameter("l_no"));
 	int major_no = Integer.parseInt(request.getParameter("major_no"));
-	lecture.lectureDBbean dbbean = lecture.lectureDBbean.getinstance();
+	lecture.LectureDBBean dbbean = lecture.LectureDBBean.getinstance();
 	int re = dbbean.deletelecture(s_no, l_no);
 	
 	if (re == -1) {

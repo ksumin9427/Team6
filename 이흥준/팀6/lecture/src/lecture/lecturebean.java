@@ -1,6 +1,6 @@
 package lecture;
 
-public class lecturebean { //강의 테이블에 있는걸 만들었습니다.
+public class LectureBean { //강의 테이블에 있는걸 만들었습니다.
 	private int l_no;
 	private String l_name;
 	private int l_level;

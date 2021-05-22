@@ -1,16 +1,16 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="lecture.lecturebean"%>
-<%@page import="lecture.lectureDBbean"%>
-<%@page import="lecture.lecturebean"%>
-<%@page import="lecture.lectureDBbean"%>
+<%@page import="lecture.LectureBean"%>
+<%@page import="lecture.LectureDBBean"%>
+<%@page import="lecture.LectureBean"%>
+<%@page import="lecture.LectureDBBean"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
     <%
     	//학생 코드 request 로 받을거
-           		 int s_no = 1;
-            	request.setCharacterEncoding("EUC-KR");
-        		String selectke =request.getParameter("selectke"); 
-        	    String lecturename =request.getParameter("lecturename");
+                   		 int s_no = 20180001;
+                    	request.setCharacterEncoding("EUC-KR");
+                		String selectke =request.getParameter("selectke"); 
+                	    String lecturename =request.getParameter("lecturename");
     %>
 <html>
 <head>
@@ -121,20 +121,9 @@
 	                        <p>
 	                            &nbsp;&nbsp;&nbsp; <strong>개설과목 검색</strong>&nbsp;
 	                            <select id="luni01" name="major_no" >
-	                            	<optgroup label="아시아대학">
-		                                <option value="1">일본어전공</option>
-		                                <option value="2">중국어전공</option>
-		                                <option value="3">베트남전공</option>
-		                            </optgroup>
-		                            <optgroup label="경영대학">    
-		                                <option value="4">경영학전공</option>
-		                                <option value="5">회계전공</option>
-		                            </optgroup>
-		                            <optgroup label="유럽대학">
-		                                <option value="6">프랑스전공</option>
-		                                <option value="7">이탈리아전공</option>
-		                                <option value="8">독일어전공</option>
-		                             </optgroup> 
+	                            		<option value="11">컴퓨터공학과</option>
+		                                <option value="12">재료학과</option>
+		                                <option value="13">체육학과</option>
 	                            </select>
 	                            <a class="button" onclick="click_ok()">검색</a>  
 	                        </p>
@@ -158,18 +147,18 @@
                         </tr>
                         <%
                         	//데이터베이스에 있는 데이터들을 불러오기 위해 만든 강의 코드입니다.
-                                                                        lecture.lectureDBbean lb2 = lecture.lectureDBbean.getinstance();
-                                                                        ArrayList<lecture.lecturebean> list;
-                                                                        if(selectke ==null){
-                                                                        int major_no = Integer.parseInt(request.getParameter("major_no"));
-                                                                        list= lb2.listlecture(major_no);
-                                                                        }else{
-                                                                        list = lb2.listKeywords(selectke, lecturename);
-                                                                        }
-                                                                        lecture.lecturebean llb=null;
-                                                                        	for(int i=0;i<list.size();i++){
-                                                                        	 llb = list.get(i);
-                                                                       			if(i%2==1){
+                                                                                                                        lecture.LectureDBBean lb2 = lecture.LectureDBBean.getinstance();
+                                                                                                                        ArrayList<lecture.LectureBean> list;
+                                                                                                                        if(selectke ==null){
+                                                                                                                        int major_no = Integer.parseInt(request.getParameter("major_no"));
+                                                                                                                        list= lb2.listlecture(major_no);
+                                                                                                                        }else{
+                                                                                                                        list = lb2.listKeywords(selectke, lecturename);
+                                                                                                                        }
+                                                                                                                        lecture.LectureBean llb=null;
+                                                                                                                        	for(int i=0;i<list.size();i++){
+                                                                                                                        	 llb = list.get(i);
+                                                                                                                       			if(i%2==1){
                         %>
                         <tr class="lhover">
                             <td><a class="button" onclick="location.href='hsle0204W.jsp?l_no=<%=llb.getL_no()%>&major_no=<%=llb.getMajor_no()%>'">신청</a></td>
@@ -207,23 +196,23 @@
                 <div class="lmain2">
                     <div class="lmain2_head">
                      <%
-                     	lecture.lectureDBbean lb3 = lecture.lectureDBbean.getinstance();
-                                                               	lecture.lecturebean lt= lb3.semlecture(s_no);
+                     	lecture.LectureDBBean lb3 = lecture.LectureDBBean.getinstance();
+                                                                                                         	lecture.LectureBean lt= lb3.semlecture(s_no);
                      %>   
                         <strong>수강확정내역</strong>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         잔여학점 : <%
                         	int limit =19;
-                                                                        if(lt.getL_sem()>limit){
+                                                                                                                        if(lt.getL_sem()>limit){
                         %>
 	                    	 		<script>
 	                    	 			alert("신청 학점이 초과 되었습니다.");
 	                    	 		</script>
 	                    	 <%
 	                    	 	}else{
-	                    	 	                    	                         	limit = limit - lt.getL_sem();
-	                    	 	                    	                         	out.println(limit);                        
-	                    	 	                    	 	                     }
+	                    	 	                    	 	                    	 	                    	                         	limit = limit - lt.getL_sem();
+	                    	 	                    	 	                    	 	                    	                         	out.println(limit);                        
+	                    	 	                    	 	                    	 	                    	 	                     }
 	                    	 %>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         신청학점 : 
@@ -246,11 +235,11 @@
                                 <td>비고</td>
                             </tr>
                            	  <%
-                           	  	lecture.lectureDBbean lb1=lecture.lectureDBbean.getinstance();
-                           	                             	                               ArrayList<lecture.lecturebean> view= lb1.viewlecture(s_no);
-                           	                             	  																for(int i=0;i<view.size();i++){
-                           	                             	          																	lecture.lecturebean lb = view.get(i);
-                           	                             	          																	if(i%2==1){
+                           	  	lecture.LectureDBBean lb1=lecture.LectureDBBean.getinstance();
+                           	                             	                             	                             	                               ArrayList<lecture.LectureBean> view= lb1.viewlecture(s_no);
+                           	                             	                             	                             	  																for(int i=0;i<view.size();i++){
+                           	                             	                             	                             	          																	lecture.LectureBean lb = view.get(i);
+                           	                             	                             	                             	          																	if(i%2==1){
                            	  %>
 	                            <tr class="lhover">
 	                            	<td><a class="button"  onclick="location.href='hsle0203W.jsp?l_no=<%=lb.getL_no()%>&major_no=<%=lb.getMajor_no()%>'">삭제</a></td>

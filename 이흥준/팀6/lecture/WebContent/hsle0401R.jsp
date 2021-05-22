@@ -1,7 +1,7 @@
 <%@page import="java.util.Random"%>
-<%@page import="lecture.lecturebean"%>
+<%@page import="lecture.LectureBean"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="lecture.lectureDBbean"%>
+<%@page import="lecture.LectureDBBean"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
     <html>
@@ -115,8 +115,8 @@
         </header>
 <%
 	int s_no =1;
-	lecture.lectureDBbean ldb = lecture.lectureDBbean.getinstance();
-	ArrayList<lecture.lecturebean> list = ldb.listSce(s_no);
+	lecture.LectureDBBean ldb = lecture.LectureDBBean.getinstance();
+	ArrayList<lecture.LectureBean> list = ldb.listSce(s_no);
 	String[] mon = {" "," "," "," "," "," "," "," "," "};
 	String[] tue= {" "," "," "," "," "," "," "," "," "};
 	String[] wed = {" "," "," "," "," "," "," "," "," "};
@@ -133,7 +133,7 @@
 	Random rd = new Random();
 	for(int i=0;i<list.size();i++){
 		int num = rd.nextInt(24);
-		lecture.lecturebean llb=list.get(i);
+		lecture.LectureBean llb=list.get(i);
 		if(llb.getL_day().equals("¿ù")&&llb.getL_start()==9){
 	mon[0] = llb.getL_name();
 	mon2[0] = color[num];

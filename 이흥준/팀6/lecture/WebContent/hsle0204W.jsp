@@ -1,6 +1,6 @@
-<%@page import="lecture.lecturebean"%>
+<%@page import="lecture.LectureBean"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="lecture.lectureDBbean"%>
+<%@page import="lecture.LectureDBBean"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%
@@ -8,7 +8,7 @@
 	int s_no = 1; //학생번호 받아올예정
 	int l_no = Integer.parseInt(request.getParameter("l_no"));
 	int major_no = Integer.parseInt(request.getParameter("major_no"));
-	lecture.lectureDBbean dbbean = lecture.lectureDBbean.getinstance();
+	lecture.LectureDBBean dbbean = lecture.LectureDBBean.getinstance();
 	if(dbbean.confirmlecture(l_no)==1){
 %>
 		<script>

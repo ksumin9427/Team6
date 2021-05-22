@@ -12,11 +12,11 @@ import javax.sql.DataSource;
 
 import org.apache.tomcat.dbcp.dbcp.PStmtKey;
 
-public class lectureDBbean {
+public class LectureDBBean {
 	// 수업 시간에 배운 거 토대로 연결했습니다.
-	private static lectureDBbean instance = new lectureDBbean();
+	private static LectureDBBean instance = new LectureDBBean();
 
-	public static lectureDBbean getinstance() {
+	public static LectureDBBean getinstance() {
 		return instance;
 	}
 
@@ -28,13 +28,13 @@ public class lectureDBbean {
 	// 여기까지는 데이터 베이스 연결하는 코드입니다.
 
 	// 어레이 리스트를 활용해서 데이터 베이스에 저장 되어 있는 강의테이블에서 불러오는 코드입니다.
-	public ArrayList<lecturebean> listlecture(int majorno) throws Exception {
+	public ArrayList<LectureBean> listlecture(int majorno) throws Exception {
 		// 전공번호를 받아서 그 전공에 맞는 강의 출력
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		lecturebean llb = null;
-		ArrayList<lecturebean> list = new ArrayList<lecturebean>();
+		LectureBean llb = null;
+		ArrayList<LectureBean> list = new ArrayList<LectureBean>();
 		String sql = "select l_no,l_name,l_level,l_sem,l_unit,l_max,l_day,l_start,l_time,l_com,major_no,professor_p_no from lecture where major_no=?";
 		// lecture에 있는 major_no을 통해 강의 불러오기
 		try {
@@ -44,7 +44,7 @@ public class lectureDBbean {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				llb = new lecturebean();
+				llb = new LectureBean();
 				llb.setL_no(rs.getInt(1));
 				llb.setL_name(rs.getString(2));
 				llb.setL_level(rs.getInt(3));
@@ -107,12 +107,12 @@ public class lectureDBbean {
 	}
 
 	// 학생 번호를 받아 그 학생이 수강하고 있는 걸 불러오는 코드
-	public ArrayList<lecturebean> viewlecture(int s_no) throws Exception {
+	public ArrayList<LectureBean> viewlecture(int s_no) throws Exception {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		lecturebean llb = null;
-		ArrayList<lecturebean> list = new ArrayList<lecturebean>();
+		LectureBean llb = null;
+		ArrayList<LectureBean> list = new ArrayList<LectureBean>();
 		String sql = "select l.l_no,l_name,l_level,l_sem,l_unit,l_max,l_day,l_start,l_time,l_com,major_no,professor_p_no from lecture l,lecture_a a where l.l_no = a.l_no and a.s_no=? order by l.l_no";
 		try {
 			con = getConnection();
@@ -121,7 +121,7 @@ public class lectureDBbean {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				llb = new lecturebean();
+				llb = new LectureBean();
 				llb.setL_no(rs.getInt(1));
 				llb.setL_name(rs.getString(2));
 				llb.setL_level(rs.getInt(3));
@@ -220,12 +220,12 @@ public class lectureDBbean {
 	}
 
 	// 학점계산하는 코드
-	public lecturebean semlecture(int s_no) {
+	public LectureBean semlecture(int s_no) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		String sql = "";
-		lecturebean llb = null;
+		LectureBean llb = null;
 		try {
 			con = getConnection();
 			sql = "select sum(l_unit) from lecture where l_no in (select l_no from lecture_a where s_no=?)";
@@ -233,7 +233,7 @@ public class lectureDBbean {
 			ps.setInt(1, s_no);
 			rs = ps.executeQuery();
 			if (rs.next()) {
-				llb = new lecturebean();
+				llb = new LectureBean();
 				llb.setL_sem(rs.getInt(1));
 			}
 		} catch (Exception e) {
@@ -309,12 +309,12 @@ public class lectureDBbean {
 		return re;
 	}
 	//수강시간표 확인하는법
-	public ArrayList<lecturebean> listSce(int s_no) throws Exception {
+	public ArrayList<LectureBean> listSce(int s_no) throws Exception {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		lecturebean llb = null;
-		ArrayList<lecturebean> list = new ArrayList<lecturebean>();
+		LectureBean llb = null;
+		ArrayList<LectureBean> list = new ArrayList<LectureBean>();
 		String sql = "select l_day,l.l_start,l_name from lecture l,lecture_a a where l.l_no = a.l_no and s_no=? order by l_start";
 		try {
 			con = getConnection();
@@ -323,7 +323,7 @@ public class lectureDBbean {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				llb = new lecturebean();
+				llb = new LectureBean();
 				llb.setL_day(rs.getString(1));
 				llb.setL_start(rs.getInt(2));
 				llb.setL_name(rs.getString(3));
@@ -347,12 +347,12 @@ public class lectureDBbean {
 		return list;
 	}
 	//키워드로 검색
-	public ArrayList<lecturebean> listKeywords(String selectke,String lecturename) throws Exception {
+	public ArrayList<LectureBean> listKeywords(String selectke,String lecturename) throws Exception {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		lecturebean llb = null;
-		ArrayList<lecturebean> list = new ArrayList<lecturebean>();
+		LectureBean llb = null;
+		ArrayList<LectureBean> list = new ArrayList<LectureBean>();
 		String sql="";
 		try {
 			con = getConnection();
@@ -377,7 +377,7 @@ public class lectureDBbean {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				llb = new lecturebean();
+				llb = new LectureBean();
 				llb.setL_no(rs.getInt(1));
 				llb.setL_name(rs.getString(2));
 				llb.setL_level(rs.getInt(3));
