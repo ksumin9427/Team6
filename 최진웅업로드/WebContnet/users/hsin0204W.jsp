@@ -1,14 +1,12 @@
 
-<%@page import="kr.co.koo.izone.user.STUDENT_VO"%>
-<%@page import="kr.co.koo.izone.user.STUDENT_DAO"%>
+<%@page import="kr.co.koo.izone.user.StudentBean"%>
+<%@page import="kr.co.koo.izone.user.StudentDBBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	
 	request.setCharacterEncoding("utf-8");
 	
-	//String stu_no =(String)session.getAttribute("세션에서 보내줄 학번");
-
 	int no = 8452;
 	//String stu_name =(String)session.getAttribute("세션에서 보내줄 이름");
 	
@@ -17,7 +15,7 @@
 	String stu_email = request.getParameter("userEmail");
 	
 	
-	STUDENT_VO stu = new STUDENT_VO();
+	StudentBean stu = new StudentBean();
 	//위 주석 처리된 부분에서 변수명만 들어가면 오류 해결됨
 	
 	stu.setS_pwd(stu_pwd);            
@@ -25,7 +23,7 @@
 	stu.setS_email(stu_email);
 	stu.setS_no(no);
 	
-	STUDENT_DAO dao = STUDENT_DAO.getInstance();
+	StudentDBBean dao = StudentDBBean.getInstance();
 	
 	boolean check = dao.updateSTUDENT(stu);
 	

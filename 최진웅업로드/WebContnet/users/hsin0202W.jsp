@@ -1,5 +1,6 @@
-<%@page import="kr.co.koo.izone.user.STUDENTBEAN"%>
-<%@page import="kr.co.koo.izone.user.STUDENTDBBEAN"%>
+<%@page import="kr.co.koo.izone.user.StudentDBBean"%>
+<%@page import="kr.co.koo.izone.user.StudentBean"%>
+<%@page import="O"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -67,46 +68,80 @@
 	//String num = (String) session.getAttribute("stu_no");  //세션에 등록된 학번을 가져옴
 	String name = "이순신";
 	int num = 8452;
-	STUDENTDBBEAN dao = STUDENTDBBEAN.getInstance();
-	STUDENTBEAN stu = dao.getMemberInfo(num);    //정보변경 메서드 호출
+	StudentDBBean dao =StudentDBBean.getInstance();
+	//비밀번호 맞는지 검사
+		String pw = request.getParameter("chkPw");
+		int check = dao.userCheck(num, pw);
 %>
+<%
+if(check == StudentDBBean.LOGIN_SUCCESS){
+	StudentBean stu = dao.getMemberInfo(num);    //정보변경 메서드 호출
+%>
+<br />
+<br />
 
-<br />
-<br />
-<br />
-		<form action="hsin0202W.jsp" method="post" style="margin-bottom: 0;">
-		<table style="cellpadding: 0; cellspacing: 0; margin: 0 auto; width: 100%">
+		
+		<br />
+	<form action="hsin0203W.jsp"  method="post" style="margin-bottom: 0;">
+	<table style="cellpadding: 0; cellspacing: 0; margin: 0 auto; width: 100%">
 		<tr>
 			<td style="padding-top: 10px; text-align: center">
 				<p>
 					<strong><%=name%>(<%=num %>)님의 정보를 수정합니다.</strong>
 				</p>
-				</br/>
 			</td>
 		</tr>
-	<br/>
-	<br/>
+
 		<tr>
 			<td style="text-align: left">
 				<p>
-				<br/>
-					<strong>비밀번호를 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
+					<strong>변경할 비밀번호를 입력해주세요.</strong>&nbsp;&nbsp;&nbsp;
 				</p>
 			</td>
 		</tr>
 		<tr>
-			<td><input type="password" name="chkPw" required="required"
+			<td><input type="password" name="userPwd"  required="required"
 				aria-required="true" 
 				style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
-				placeholder="로그인 당시 비밀번호"></td>
+				placeholder="password"></td>
+		</tr>
+
+		<tr>
+			<td style="text-align: left">
+				<p>
+					<strong>변경할 이메일을 입력해주세요.</strong>&nbsp;&nbsp;&nbsp;
+				</p>
+			</td>
 		</tr>
 		<tr>
+			<td><input type="email" name="userEmail"  required="required"
+				aria-required="true" value="<%=stu.getS_email() %>"
+				style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
+				placeholder="ex) xxxxxxxx@xxxx.com"></td>
+		</tr>
+		
+		<tr>
+			<td style="text-align: left">
+				<p>
+					<strong>변경할 전화번호를 입력해주세요.</strong>&nbsp;&nbsp;&nbsp;
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td><input type="tel" name="userTel"  required="required"
+				aria-required="true" value="<%=stu.getS_tel()%>"
+				style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
+				placeholder="ex) xxx-xxxx-xxxx"></td>
+		</tr>
+
+		<tr>
 			<td style="width: 100%; text-align: center; colspan: 3;"><input
-				type="submit" value=" 확 인 " 
+				type="submit" value="정보 수정" 
 				style="background-color: #4B89DC; margin-top: 0; height: 40px; color: white; border: 0px solid #388E3C; opacity: 0.8">
 			</td>
 		</tr>
-		</table>
+
+	</table>
 </form>
 <footer>
         <ul>
@@ -117,5 +152,13 @@
     </footer>
 </div>
 </body>
+</html>
+<% } else { %>
+		<script>
+			alert("비밀번호를 다시 확인해주세요.")
+			history.back()
+		</script>
+	<% } %>
+
 
 
