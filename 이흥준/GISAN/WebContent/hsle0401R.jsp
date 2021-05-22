@@ -1,7 +1,7 @@
 <%@page import="java.util.Random"%>
-<%@page import="lecture.lecture1bean"%>
+<%@page import="lecture.lecturebean"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="lecture.lecture1DBbean"%>
+<%@page import="lecture.lectureDBbean"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
     <html>
@@ -113,208 +113,209 @@
             </ul>
         <!-- </nav> -->
         </header>
-<%		int s_no =1;
-			lecture1DBbean ldb = lecture1DBbean.getinstance();
-			ArrayList<lecture1bean> list = ldb.listSce(s_no);
-			String[] mon = {" "," "," "," "," "," "," "," "," "};
-			String[] tue= {" "," "," "," "," "," "," "," "," "};
-			String[] wed = {" "," "," "," "," "," "," "," "," "};
-			String[] thu= {" "," "," "," "," "," "," "," "," "};
-			String[] fri= {" "," "," "," "," "," "," "," "," "};
-			String[] color = {"#ecc369","#f08676","#70a5e9","#75ca87","#d397ed","#a6c96f","#7ad1c0","#fbaa69","#9d86e0"
-					,"#CD5C5C","#7FFFD4","#00FFFF","#FF0000","#00FF00	","#FFFAF0","#708090",	"#BDB76B","#2E8B57	","#FFFF00"
-					,"#DCDCDC","#20B2AA","#FF00FF","#FFF8DC","#9370DB","#87CEFA"};
-			String[] mon2 = {" "," "," "," "," "," "," "," "," "};
-			String[] tue2= {" "," "," "," "," "," "," "," "," "};
-			String[] wed2 = {" "," "," "," "," "," "," "," "," "};
-			String[] thu2= {" "," "," "," "," "," "," "," "," "};
-			String[] fri2= {" "," "," "," "," "," "," "," "," "};
-			Random rd = new Random();
-			for(int i=0;i<list.size();i++){
-				int num = rd.nextInt(24);
-				lecture1bean llb=list.get(i);
-				if(llb.getL_day().equals("월")&&llb.getL_start()==9){
-					mon[0] = llb.getL_name();
-					mon2[0] = color[num];
-				}
-				if(llb.getL_day().equals("화")&&llb.getL_start()==9){
-					tue[0] = llb.getL_name();
-					tue2[0] = color[num];
-				}
-				if(llb.getL_day().equals("수")&&llb.getL_start()==9){
-					wed[0] = llb.getL_name();
-					wed2[0] = color[num];
-				}
-				if(llb.getL_day().equals("목")&&llb.getL_start()==9){
-					thu[0] = llb.getL_name();
-					thu2[0] = color[num];
-				}
-				if(llb.getL_day().equals("금")&&llb.getL_start()==9){
-					fri[0] = llb.getL_name();
-					fri2[0] = color[num];
-				}
-				if(llb.getL_day().equals("월")&&llb.getL_start()==10){
-					mon[1] = llb.getL_name();
-					mon2[1] = color[num];
-				}
-				if(llb.getL_day().equals("화")&&llb.getL_start()==10){
-					tue[1] = llb.getL_name();
-					tue2[1] = color[num];
-				}
-				if(llb.getL_day().equals("수")&&llb.getL_start()==10){
-					wed[1] = llb.getL_name();
-					wed2[1] = color[num];
-				}
-				if(llb.getL_day().equals("목")&&llb.getL_start()==10){
-					thu[1] = llb.getL_name();
-					thu2[1] = color[num];
-				}
-				if(llb.getL_day().equals("금")&&llb.getL_start()==10){
-					fri[1] = llb.getL_name();
-					fri2[1] = color[num];
-				}
-				if(llb.getL_day().equals("월")&&llb.getL_start()==11){
-					mon[2] = llb.getL_name();
-					mon2[2] = color[num];
-				}
-				if(llb.getL_day().equals("화")&&llb.getL_start()==11){
-					tue[2] = llb.getL_name();
-					tue2[2] = color[num];
-				}
-				if(llb.getL_day().equals("수")&&llb.getL_start()==11){
-					wed[2] = llb.getL_name();
-					wed2[2] = color[num];
-				}
-				if(llb.getL_day().equals("목")&&llb.getL_start()==11){
-					thu[2] = llb.getL_name();
-					thu2[2] = color[num];
-				}
-				if(llb.getL_day().equals("금")&&llb.getL_start()==11){
-					fri[2] = llb.getL_name();
-					fri2[2] = color[num];
-				}
-				if(llb.getL_day().equals("월")&&llb.getL_start()==12){
-					mon[3] = llb.getL_name();
-					mon2[3] = color[num];
-				}
-				if(llb.getL_day().equals("화")&&llb.getL_start()==12){
-					tue[3] = llb.getL_name();
-					tue2[3] = color[num];
-				}
-				if(llb.getL_day().equals("수")&&llb.getL_start()==12){
-					wed[3] = llb.getL_name();
-					wed2[3] = color[num];
-				}
-				if(llb.getL_day().equals("목")&&llb.getL_start()==12){
-					thu[3] = llb.getL_name();
-					thu2[3] = color[num];
-				}
-				if(llb.getL_day().equals("금")&&llb.getL_start()==12){
-					fri[3] = llb.getL_name();
-					fri2[3] = color[num];
-				}
-				if(llb.getL_day().equals("월")&&llb.getL_start()==13){
-					mon[4] = llb.getL_name();
-					mon2[4] = color[num];
-				}
-				if(llb.getL_day().equals("화")&&llb.getL_start()==13){
-					tue[4] = llb.getL_name();
-					tue2[4] = color[num];
-				}
-				if(llb.getL_day().equals("수")&&llb.getL_start()==13){
-					wed[4] = llb.getL_name();
-					wed2[4] = color[num];
-				}
-				if(llb.getL_day().equals("목")&&llb.getL_start()==13){
-					thu[4] = llb.getL_name();
-					thu2[4] = color[num];
-				}
-				if(llb.getL_day().equals("금")&&llb.getL_start()==13){
-					fri[4] = llb.getL_name();
-					fri2[4] = color[num];
-				}
-				if(llb.getL_day().equals("월")&&llb.getL_start()==14){
-					mon[5] = llb.getL_name();
-					mon2[5] = color[num];
-				}
-				if(llb.getL_day().equals("화")&&llb.getL_start()==14){
-					tue[5] = llb.getL_name();
-					tue2[5] = color[num];
-				}
-				if(llb.getL_day().equals("수")&&llb.getL_start()==14){
-					wed[5] = llb.getL_name();
-					wed2[5] = color[num];
-				}
-				if(llb.getL_day().equals("목")&&llb.getL_start()==14){
-					thu[5] = llb.getL_name();
-					thu2[5] = color[num];
-				}
-				if(llb.getL_day().equals("금")&&llb.getL_start()==14){
-					fri[5] = llb.getL_name();
-					fri2[5] = color[num];
-				}
-				if(llb.getL_day().equals("월")&&llb.getL_start()==15){
-					mon[6] = llb.getL_name();
-					mon2[6] = color[num];
-				}
-				if(llb.getL_day().equals("화")&&llb.getL_start()==15){
-					tue[6] = llb.getL_name();
-					tue2[6] = color[num];
-				}
-				if(llb.getL_day().equals("수")&&llb.getL_start()==15){
-					wed[6] = llb.getL_name();
-					wed2[6] = color[num];
-				}
-				if(llb.getL_day().equals("목")&&llb.getL_start()==15){
-					thu[6] = llb.getL_name();
-					thu2[6] = color[num];
-				}
-				if(llb.getL_day().equals("금")&&llb.getL_start()==15){
-					fri[6] = llb.getL_name();
-					fri2[6] = color[num];
-				}
-				if(llb.getL_day().equals("월")&&llb.getL_start()==16){
-					mon[7] = llb.getL_name();
-					mon2[7] = color[num];
-				}
-				if(llb.getL_day().equals("화")&&llb.getL_start()==16){
-					tue[7] = llb.getL_name();
-					tue2[7] = color[num];
-				}
-				if(llb.getL_day().equals("수")&&llb.getL_start()==16){
-					wed[7] = llb.getL_name();
-					wed2[7] = color[num];
-				}
-				if(llb.getL_day().equals("목")&&llb.getL_start()==16){
-					thu[7] = llb.getL_name();
-					thu2[7] = color[num];
-				}
-				if(llb.getL_day().equals("금")&&llb.getL_start()==16){
-					fri[7] = llb.getL_name();
-					fri2[7] = color[num];
-				}
-				if(llb.getL_day().equals("월")&&llb.getL_start()==17){
-					mon[8] = llb.getL_name();
-					mon2[8] = color[num];
-				}
-				if(llb.getL_day().equals("화")&&llb.getL_start()==17){
-					tue[8] = llb.getL_name();
-					tue2[8] = color[num];
-				}
-				if(llb.getL_day().equals("수")&&llb.getL_start()==17){
-					wed[8] = llb.getL_name();
-					wed2[8] = color[num];
-				}
-				if(llb.getL_day().equals("목")&&llb.getL_start()==17){
-					thu[8] = llb.getL_name();
-					thu2[8] = color[num];
-				}
-				if(llb.getL_day().equals("금")&&llb.getL_start()==17){
-					fri[8] = llb.getL_name();
-					fri2[8] = color[num];
-				}
-			}
-		%>
+<%
+	int s_no =1;
+	lecture.lectureDBbean ldb = lecture.lectureDBbean.getinstance();
+	ArrayList<lecture.lecturebean> list = ldb.listSce(s_no);
+	String[] mon = {" "," "," "," "," "," "," "," "," "};
+	String[] tue= {" "," "," "," "," "," "," "," "," "};
+	String[] wed = {" "," "," "," "," "," "," "," "," "};
+	String[] thu= {" "," "," "," "," "," "," "," "," "};
+	String[] fri= {" "," "," "," "," "," "," "," "," "};
+	String[] color = {"#ecc369","#f08676","#70a5e9","#75ca87","#d397ed","#a6c96f","#7ad1c0","#fbaa69","#9d86e0"
+	,"#CD5C5C","#7FFFD4","#00FFFF","#FF0000","#00FF00	","#FFFAF0","#708090",	"#BDB76B","#2E8B57	","#FFFF00"
+	,"#DCDCDC","#20B2AA","#FF00FF","#FFF8DC","#9370DB","#87CEFA"};
+	String[] mon2 = {" "," "," "," "," "," "," "," "," "};
+	String[] tue2= {" "," "," "," "," "," "," "," "," "};
+	String[] wed2 = {" "," "," "," "," "," "," "," "," "};
+	String[] thu2= {" "," "," "," "," "," "," "," "," "};
+	String[] fri2= {" "," "," "," "," "," "," "," "," "};
+	Random rd = new Random();
+	for(int i=0;i<list.size();i++){
+		int num = rd.nextInt(24);
+		lecture.lecturebean llb=list.get(i);
+		if(llb.getL_day().equals("월")&&llb.getL_start()==9){
+	mon[0] = llb.getL_name();
+	mon2[0] = color[num];
+		}
+		if(llb.getL_day().equals("화")&&llb.getL_start()==9){
+	tue[0] = llb.getL_name();
+	tue2[0] = color[num];
+		}
+		if(llb.getL_day().equals("수")&&llb.getL_start()==9){
+	wed[0] = llb.getL_name();
+	wed2[0] = color[num];
+		}
+		if(llb.getL_day().equals("목")&&llb.getL_start()==9){
+	thu[0] = llb.getL_name();
+	thu2[0] = color[num];
+		}
+		if(llb.getL_day().equals("금")&&llb.getL_start()==9){
+	fri[0] = llb.getL_name();
+	fri2[0] = color[num];
+		}
+		if(llb.getL_day().equals("월")&&llb.getL_start()==10){
+	mon[1] = llb.getL_name();
+	mon2[1] = color[num];
+		}
+		if(llb.getL_day().equals("화")&&llb.getL_start()==10){
+	tue[1] = llb.getL_name();
+	tue2[1] = color[num];
+		}
+		if(llb.getL_day().equals("수")&&llb.getL_start()==10){
+	wed[1] = llb.getL_name();
+	wed2[1] = color[num];
+		}
+		if(llb.getL_day().equals("목")&&llb.getL_start()==10){
+	thu[1] = llb.getL_name();
+	thu2[1] = color[num];
+		}
+		if(llb.getL_day().equals("금")&&llb.getL_start()==10){
+	fri[1] = llb.getL_name();
+	fri2[1] = color[num];
+		}
+		if(llb.getL_day().equals("월")&&llb.getL_start()==11){
+	mon[2] = llb.getL_name();
+	mon2[2] = color[num];
+		}
+		if(llb.getL_day().equals("화")&&llb.getL_start()==11){
+	tue[2] = llb.getL_name();
+	tue2[2] = color[num];
+		}
+		if(llb.getL_day().equals("수")&&llb.getL_start()==11){
+	wed[2] = llb.getL_name();
+	wed2[2] = color[num];
+		}
+		if(llb.getL_day().equals("목")&&llb.getL_start()==11){
+	thu[2] = llb.getL_name();
+	thu2[2] = color[num];
+		}
+		if(llb.getL_day().equals("금")&&llb.getL_start()==11){
+	fri[2] = llb.getL_name();
+	fri2[2] = color[num];
+		}
+		if(llb.getL_day().equals("월")&&llb.getL_start()==12){
+	mon[3] = llb.getL_name();
+	mon2[3] = color[num];
+		}
+		if(llb.getL_day().equals("화")&&llb.getL_start()==12){
+	tue[3] = llb.getL_name();
+	tue2[3] = color[num];
+		}
+		if(llb.getL_day().equals("수")&&llb.getL_start()==12){
+	wed[3] = llb.getL_name();
+	wed2[3] = color[num];
+		}
+		if(llb.getL_day().equals("목")&&llb.getL_start()==12){
+	thu[3] = llb.getL_name();
+	thu2[3] = color[num];
+		}
+		if(llb.getL_day().equals("금")&&llb.getL_start()==12){
+	fri[3] = llb.getL_name();
+	fri2[3] = color[num];
+		}
+		if(llb.getL_day().equals("월")&&llb.getL_start()==13){
+	mon[4] = llb.getL_name();
+	mon2[4] = color[num];
+		}
+		if(llb.getL_day().equals("화")&&llb.getL_start()==13){
+	tue[4] = llb.getL_name();
+	tue2[4] = color[num];
+		}
+		if(llb.getL_day().equals("수")&&llb.getL_start()==13){
+	wed[4] = llb.getL_name();
+	wed2[4] = color[num];
+		}
+		if(llb.getL_day().equals("목")&&llb.getL_start()==13){
+	thu[4] = llb.getL_name();
+	thu2[4] = color[num];
+		}
+		if(llb.getL_day().equals("금")&&llb.getL_start()==13){
+	fri[4] = llb.getL_name();
+	fri2[4] = color[num];
+		}
+		if(llb.getL_day().equals("월")&&llb.getL_start()==14){
+	mon[5] = llb.getL_name();
+	mon2[5] = color[num];
+		}
+		if(llb.getL_day().equals("화")&&llb.getL_start()==14){
+	tue[5] = llb.getL_name();
+	tue2[5] = color[num];
+		}
+		if(llb.getL_day().equals("수")&&llb.getL_start()==14){
+	wed[5] = llb.getL_name();
+	wed2[5] = color[num];
+		}
+		if(llb.getL_day().equals("목")&&llb.getL_start()==14){
+	thu[5] = llb.getL_name();
+	thu2[5] = color[num];
+		}
+		if(llb.getL_day().equals("금")&&llb.getL_start()==14){
+	fri[5] = llb.getL_name();
+	fri2[5] = color[num];
+		}
+		if(llb.getL_day().equals("월")&&llb.getL_start()==15){
+	mon[6] = llb.getL_name();
+	mon2[6] = color[num];
+		}
+		if(llb.getL_day().equals("화")&&llb.getL_start()==15){
+	tue[6] = llb.getL_name();
+	tue2[6] = color[num];
+		}
+		if(llb.getL_day().equals("수")&&llb.getL_start()==15){
+	wed[6] = llb.getL_name();
+	wed2[6] = color[num];
+		}
+		if(llb.getL_day().equals("목")&&llb.getL_start()==15){
+	thu[6] = llb.getL_name();
+	thu2[6] = color[num];
+		}
+		if(llb.getL_day().equals("금")&&llb.getL_start()==15){
+	fri[6] = llb.getL_name();
+	fri2[6] = color[num];
+		}
+		if(llb.getL_day().equals("월")&&llb.getL_start()==16){
+	mon[7] = llb.getL_name();
+	mon2[7] = color[num];
+		}
+		if(llb.getL_day().equals("화")&&llb.getL_start()==16){
+	tue[7] = llb.getL_name();
+	tue2[7] = color[num];
+		}
+		if(llb.getL_day().equals("수")&&llb.getL_start()==16){
+	wed[7] = llb.getL_name();
+	wed2[7] = color[num];
+		}
+		if(llb.getL_day().equals("목")&&llb.getL_start()==16){
+	thu[7] = llb.getL_name();
+	thu2[7] = color[num];
+		}
+		if(llb.getL_day().equals("금")&&llb.getL_start()==16){
+	fri[7] = llb.getL_name();
+	fri2[7] = color[num];
+		}
+		if(llb.getL_day().equals("월")&&llb.getL_start()==17){
+	mon[8] = llb.getL_name();
+	mon2[8] = color[num];
+		}
+		if(llb.getL_day().equals("화")&&llb.getL_start()==17){
+	tue[8] = llb.getL_name();
+	tue2[8] = color[num];
+		}
+		if(llb.getL_day().equals("수")&&llb.getL_start()==17){
+	wed[8] = llb.getL_name();
+	wed2[8] = color[num];
+		}
+		if(llb.getL_day().equals("목")&&llb.getL_start()==17){
+	thu[8] = llb.getL_name();
+	thu2[8] = color[num];
+		}
+		if(llb.getL_day().equals("금")&&llb.getL_start()==17){
+	fri[8] = llb.getL_name();
+	fri2[8] = color[num];
+		}
+	}
+%>
 <div id="sceline">
 <table class="sce1" width=400 height="600" style="color: #121212">
 <caption><h1>▶   강의 시간표  ◀</h1></caption>
