@@ -11,15 +11,14 @@ public class StudentBean {
 	private String s_tel;
 	private int s_status;
 	private int MAJOR_no;
-	private String s_birth;
 	
 	public StudentBean(){
 	}
 	
 	
 
-	public StudentBean(int s_no, String s_pwd, String s_name, int s_level, String s_birth, String s_email, String s_tel,
-			int s_status, int MAJOR_no, String s_jumin) {
+	public StudentBean(int s_no, String s_pwd, String s_name, int s_level, String s_jumin, String s_email, String s_tel,
+			int s_status, int MAJOR_no) {
 		super();
 		this.s_no = s_no;
 		this.s_pwd = s_pwd;
@@ -30,7 +29,6 @@ public class StudentBean {
 		this.s_tel = s_tel;
 		this.s_status = s_status;
 		this.MAJOR_no = MAJOR_no;
-		this.s_birth = s_birth;
 	}
 
 
@@ -143,23 +141,11 @@ public class StudentBean {
 
 
 
-	public String getS_birth() {
-		return s_birth;
-	}
-
-
-
-	public void setS_birth(String s_birth) {
-		this.s_birth = s_birth;
-	}
-
-
-
 	@Override
 	public String toString() {
 		return "STUDENT_VO [s_no=" + s_no + ", s_pwd=" + s_pwd + ", s_name=" + s_name + ", s_level=" + s_level
 				+ ", s_jumin=" + s_jumin + ", s_email=" + s_email + ", s_tel=" + s_tel + ", s_status=" + s_status
-				+ ", MAJOR_no=" + MAJOR_no + ", s_birth=" + s_birth + "]";
+				+ ", MAJOR_no=" + MAJOR_no + "]";
 	}
 	
 	

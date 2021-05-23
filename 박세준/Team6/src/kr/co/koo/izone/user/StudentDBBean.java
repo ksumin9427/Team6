@@ -64,7 +64,6 @@ public class StudentDBBean {
 				user.setS_jumin(rs.getString("s_jumin"));
 				user.setS_email(rs.getString("s_email"));
 				user.setS_tel(rs.getString("s_tel"));
-				user.setS_birth("s_birth");
 			}
 
 		} catch (Exception e) {
@@ -216,12 +215,11 @@ public class StudentDBBean {
 							rs.getString("s_pwd"),
 							rs.getString("s_name"), 
 							rs.getInt("s_level"),
-							rs.getString("s_birth"), 	 
+							rs.getString("s_jumin"), 	 
 							rs.getString("s_email"), 	 
 							rs.getString("s_tel"), 	 
 							rs.getInt("s_status"),
-							rs.getInt("MAJOR_no"),
-							rs.getString("s_jumin")	 
+							rs.getInt("MAJOR_no")
 							);
 					infoList.add(info);
 				}
