@@ -1,0 +1,9 @@
+경로 숨기기 때문에
+server.xml 에서 파일이 들어있는 자신의 프로젝트의 Context    
+예)  <Context docBase="Team6" path="/Team6" reloadable="true" source="org.eclipse.jst.jee.server:jspwork">
+      	<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/oracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:xe" username="team6"/>
+      </Context>
+를 복사, 붙여넣기 한다음 path="/Team6" -> path="/izone" 으로 수정.
+
+Team6의 프로젝트에서 Team6로 가는 경로와 izone으로 가는 경로 두가지가 생기는데 실제 기능 파일들이
+저장되어있는 Team6경로를 가짜 경로인 izone을 한번 거쳐서 간다. -->> 경로 추적X
