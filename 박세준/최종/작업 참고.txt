@@ -1,0 +1,12 @@
+1. SQL총정리.txt 이용해서 테이블 세팅 및 데이터 삽입
+   (앞쪽 drop문장들은 첫 실행시 오류문장 뜨는데 무시)
+2. git -> 박세준 -> 최종 -> Team6 또는 Team6.zip 이용해서 프로젝트 import
+3. server.xml 작업(서버설정.hwp참고)
+4. upload, upload_s, upload_p 만들기
+   (workspace -> .metadata -> .plugins -> org.eclipse.wst.server.core -> tmp0 -> wtpwebapps -> Team6)
+5. error(빨간x표시) 뜨는게 없는지 확인 후 common -> main.jsp로 실행
+6. 잘 실행 되면 공지사항, 게시판 글 올려두기
+7. sql에서 select * from student; 등등의 문장 이용해서 나오는 테이블의 
+   id, pwd 복사, 붙여넣기로 각 페이지 로그인 하여 보여주기.
+
+@@@@강의수정 할때 이수구분 뒤의 공백 있으니 x로 지워놓고 다시적기!@@@@
