@@ -11,44 +11,32 @@ drop table lecture_a;
 drop table exam;
 
 CREATE TABLE board_p (
-    bp_id       NUMBER(5) NOT NULL,
+    bp_no       NUMBER(5) NOT NULL,
     bp_name     VARCHAR2(20),
-    bp_email    VARCHAR2(20),
     bp_title    VARCHAR2(80),
     bp_content  VARCHAR2(3000),
-    bp_pwd      VARCHAR2(12),
     bp_date     DATE,
-    bp_hit      NUMBER(5) default 0,
-    bp_ip       VARCHAR2(15),
+    bp_hit      NUMBER(5),
     bp_ref      NUMBER(5),
     bp_step     NUMBER(5),
-    bp_level    NUMBER(5),
-    bp_fname    VARCHAR2(100),
-    bp_fsize    NUMBER(10),
-    bp_rfname    VARCHAR2(100)
+    bp_level    NUMBER(5)
 );
 
-ALTER TABLE board_p ADD CONSTRAINT board_pv3_pk PRIMARY KEY ( bp_id );
+ALTER TABLE board_p ADD CONSTRAINT board_sv1_pk PRIMARY KEY ( bp_no );
 
 CREATE TABLE board_s (
-    bs_id       NUMBER(5) NOT NULL,
+    bs_no       NUMBER(5) NOT NULL,
     bs_name     VARCHAR2(20),
-    bs_email    VARCHAR2(20),
     bs_title    VARCHAR2(80),
     bs_content  VARCHAR2(3000),
-    bs_pwd      VARCHAR2(12),
     bs_date     DATE,
-    bs_hit      NUMBER(5) default 0,
-    bs_ip       VARCHAR2(15),
+    bs_hit      NUMBER(5),
     bs_ref      NUMBER(5),
     bs_step     NUMBER(5),
-    bs_level    NUMBER(5),
-    bs_fname    VARCHAR2(100),
-    bs_fsize    NUMBER(10),
-    bs_rfname    VARCHAR2(100)
+    bs_level    NUMBER(5)
 );
 
-ALTER TABLE board_s ADD CONSTRAINT board_sv2_pk PRIMARY KEY ( bs_id );
+ALTER TABLE board_s ADD CONSTRAINT board_s_pk PRIMARY KEY ( bs_no );
 
 CREATE TABLE lecture (
     l_no            NUMBER(10) NOT NULL,
