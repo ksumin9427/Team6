@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
     <title>가산대학교 관리자지원시스템</title>
 </head>
 <body>
@@ -62,75 +63,73 @@
                 <li class="meme"><a class="menuLink" href="/izone/users/stuWriteView.ga">학생정보 등록</a></li>
 			</ul>        
    
-    
-    <table>
-						
-						<tr style="margin-top: 0; height: 30	px; color: white; border: 0px solid #f78f24; opacity: 0.8">
-							<th>학번 &nbsp;&nbsp;</th>
-							<th>비밀번호 &nbsp;&nbsp;</th>
-							<th>이름&nbsp;&nbsp;</th>
-							<th>학년&nbsp;&nbsp;</th>
-							<th>이메일&nbsp;&nbsp;</th>
-							<th>전화번호&nbsp;&nbsp;</th>
-							<th>재적상태&nbsp;&nbsp;</th>
-							<th>전공번호&nbsp;&nbsp;</th>
-							<th>주민등록번호&nbsp;&nbsp;</th>
-						</tr>
-
-						<c:forEach var = "info" items="${infos}">
-						<tr>
-							<!-- 게시글리스트가 들어갈 행 -->
-							<td align="center">
-								<a href="/izone/users/stuContentView.ga?s_no=${info.s_no}" style="green: ;">
-								${info.s_no}
-								</a>
-							</td>
-							<td align="center">
-								<a href="/izone/users/stuContentView.ga?s_no=${info.s_no}" style="green: ;">
-								${info.s_pwd}
-								</a>
-							</td>
-							<td align="center">
-								<a href="/izone/users/stuContentView.ga?s_no=${info.s_no}" style="green: ;">
-								${info.s_name}
-								</a>
-							</td>
-							<td align="center">
-								<a href="/izone/users/stuContentView.ga?s_no=${info.s_no}" style="green: ;">
-								${info.s_level}
-								</a>
-							</td>
-							<td align="center">
-								<a href="/izone/users/stuContentView.ga?s_no=${info.s_no}" style="green: ;">
-								${info.s_email}
-								</a>
-							</td>
-							<td align="center">
-								<a href="/izone/users/stuContentView.ga?s_no=${info.s_no}" style="green: ;">
-								${info.s_tel}
-								</a>
-							</td>
-							<td align="center"> 
-								<a href="/izone/users/stuContentView.ga?s_no=${info.s_no}" style="green: ;">
-								${info.s_status}
-								</a>
-							</td>
-							<td align="center">
-								<a href="/izone/users/stuContentView.ga?s_no=${info.s_no}" style="green: ;">
-								${info.MAJOR_no}
-								</a>
-							</td>
-							<td align="center">
-								<a href="/izone/users/stuContentView.ga?s_no=${info.s_no}" style="green: ;">
-								${info.s_jumin}
-								</a>
-							</td>												
-						</tr>		
-						</c:forEach>	 					
-						</table>
-    
-    
-   
+    		
+	    		<table class="table table-hover">
+							
+							<tr>
+								<td align="center">학번</td>
+								<td align="center">비밀번호</td>
+								<td align="center">이름</td>
+								<td align="center">학년</td>
+								<td align="center">이메일</td>
+								<td align="center">전화번호</td>
+								<td align="center">재적상태</td>
+								<td align="center">전공번호</td>
+								<td align="center">주민등록번호</td>
+							</tr>
+	
+							<c:forEach var = "info" items="${infos}">
+							<tr>
+								<!-- 게시글리스트가 들어갈 행 -->
+								<td align="center">
+									<a href="/izone/users/stuContentView.ga?s_no=${info.s_no}" style="green: ;">
+									${info.s_no}
+									</a>
+								</td>
+								<td align="center">
+									<a href="/izone/users/stuContentView.ga?s_no=${info.s_no}" style="green: ;">
+									${info.s_pwd}
+									</a>
+								</td>
+								<td align="center">
+									<a href="/izone/users/stuContentView.ga?s_no=${info.s_no}" style="green: ;">
+									${info.s_name}
+									</a>
+								</td>
+								<td align="center">
+									<a href="/izone/users/stuContentView.ga?s_no=${info.s_no}" style="green: ;">
+									${info.s_level}
+									</a>
+								</td>
+								<td align="center">
+									<a href="/izone/users/stuContentView.ga?s_no=${info.s_no}" style="green: ;">
+									${info.s_email}
+									</a>
+								</td>
+								<td align="center">
+									<a href="/izone/users/stuContentView.ga?s_no=${info.s_no}" style="green: ;">
+									${info.s_tel}
+									</a>
+								</td>
+								<td align="center"> 
+									<a href="/izone/users/stuContentView.ga?s_no=${info.s_no}" style="green: ;">
+									${info.s_status}
+									</a>
+								</td>
+								<td align="center">
+									<a href="/izone/users/stuContentView.ga?s_no=${info.s_no}" style="green: ;">
+									${info.MAJOR_no}
+									</a>
+								</td>
+								<td align="center">
+									<a href="/izone/users/stuContentView.ga?s_no=${info.s_no}" style="green: ;">
+									${info.s_jumin}
+									</a>
+								</td>												
+							</tr>		
+							</c:forEach>	 					
+				</table>
+			
     <footer>
         <ul>
             <li>부산 부산진구 중앙대로 688</li>

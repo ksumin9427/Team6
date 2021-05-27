@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
     <title>가산대학교 관리자지원시스템</title>
 </head>
 <body>
@@ -61,17 +62,10 @@
    
     
     <form action="/izone/users/stuWrtie.ga"  method="post" style="margin-bottom: 0;">
-	<table style="cellpadding: 0; cellspacing: 0; margin: 0 auto; width: 100%">
-		<tr>
-			<td style="padding-top: 10px; text-align: center">
-			</td>
-		</tr>
-
+	<table class="table">
 		<tr>
 			<td style="text-align: left">
-				<p>
-					<strong>학번을 입력하세요</strong>&nbsp;&nbsp;&nbsp;
-				</p>
+				<strong>학번을 입력하세요</strong>&nbsp;&nbsp;&nbsp;
 			</td>
 		</tr>
 		<tr>
@@ -80,26 +74,10 @@
 				style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
 				placeholder="학번"></td>
 		</tr>
-
-		<tr>
-			<td style="text-align: left">
-				<p>
-					<strong>비멀번호를 입력하세요</strong>&nbsp;&nbsp;&nbsp;
-				</p>
-			</td>
-		</tr>
-		<tr>
-			<td><input type="password" name="s_pwd"  required="required"
-				aria-required="true" 
-				style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
-				placeholder="비밀번호"></td>
-		</tr>
 		
 		<tr>
 			<td style="text-align: left">
-				<p>
-					<strong>이름을 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
-				</p>
+				<strong>이름을 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
 			</td>
 		</tr>
 		<tr>
@@ -111,9 +89,7 @@
 		
 		<tr>
 			<td style="text-align: left">
-				<p>
-					<strong>학년을 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
-				</p>
+				<strong>학년을 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
 			</td>
 		</tr>
 		<tr>
@@ -123,39 +99,22 @@
 				placeholder="학년"></td>
 		</tr>
 		
+		
 		<tr>
 			<td style="text-align: left">
-				<p>
-					<strong>이메일주소를 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
-				</p>
+				<strong>주민등록번호를 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
 			</td>
 		</tr>
 		<tr>
-			<td><input type="email" name="s_email"  required="required"
+			<td><input type="text" name="s_jumin"  required="required"
 				aria-required="true" 
 				style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
-				placeholder="e-mail"></td>
+				placeholder="주민등록번호"></td>
 		</tr>
 		
 		<tr>
 			<td style="text-align: left">
-				<p>
-					<strong>생년월일을 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
-				</p>
-			</td>
-		</tr>
-		<tr>
-			<td><input type="text" name="s_birth"  required="required"
-				aria-required="true" 
-				style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
-				placeholder="생년월일"></td>
-		</tr>
-		
-		<tr>
-			<td style="text-align: left">
-				<p>
-					<strong>전화번호를 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
-				</p>
+				<strong>전화번호를 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
 			</td>
 		</tr>
 		<tr>
@@ -167,9 +126,19 @@
 		
 		<tr>
 			<td style="text-align: left">
-				<p>
-					<strong>재적상태를 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
-				</p>
+				<strong>이메일주소를 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
+			</td>
+		</tr>
+		<tr>
+			<td><input type="email" name="s_email"  required="required"
+				aria-required="true" 
+				style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
+				placeholder="e-mail"></td>
+		</tr>
+		
+		<tr>
+			<td style="text-align: left">
+				<strong>재적상태를 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
 			</td>
 		</tr>
 		<tr>
@@ -181,32 +150,15 @@
 		
 		<tr>
 			<td style="text-align: left">
-				<p>
-					<strong>전공번호를 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
-				</p>
+				<strong>전공번호를 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
 			</td>
 		</tr>
 		<tr>
 			<td><input type="text" name="MAJOR_no"  required="required"
 				aria-required="true" 
 				style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
-				placeholder="잔공번호"></td>
+				placeholder="전공번호"></td>
 		</tr>
-		
-		<tr>
-			<td style="text-align: left">
-				<p>
-					<strong>주민등록번호를 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
-				</p>
-			</td>
-		</tr>
-		<tr>
-			<td><input type="text" name="s_jumin"  required="required"
-				aria-required="true" 
-				style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
-				placeholder="주민등록번호"></td>
-		</tr>
-
 		<tr>
 			<td style="width: 100%; text-align: center; colspan: 3;"><input
 				type="submit" value="등록" 

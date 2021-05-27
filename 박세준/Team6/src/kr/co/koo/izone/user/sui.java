@@ -65,29 +65,30 @@ public class sui extends HttpServlet {
 			sv = new stu_Delete_Service();
 			sv.execute(request, response);
 			viewPage = "/users/stuList.ga";
-		} else if(uri.equals("/izone/users/proList.ga")) {
-			sr = new pro_List();
-			sr.execute(request, response);
-			viewPage ="/users/hmpr0101R.jsp";
-		} else if(uri.equals("/izone/users/proWriteView.ga")) {		
-			viewPage ="/users/hmpr0201W.jsp";
-		} else if(uri.equals("/izone/users/proWrtie.ga")) {
-			sr = new pro_Write_Service();
-			sr.execute(request, response);
-			viewPage ="/users/proList.ga";
-		} else if(uri.equals("/izone/users/proContentView.ga")) {
-			sr = new pro_Contents_Service();
-			sr.execute(request, response);
-			viewPage ="/users/hmpr0202W.jsp";
-		} else if(uri.equals("/izone/users/proUpdate.ga")) {
-			sr = new pro_Update_Service();
-			sr.execute(request, response);
-			viewPage ="/users/proList.ga";
-		} else if(uri.equals("/izone/users/proDelete.ga")) {
-			sr = new pro_Delete_Service();
-			sr.execute(request, response);
-			viewPage ="/users/proList.ga";
 		}
+//		 else if(uri.equals("/izone/users/proList.ga")) {
+//			sr = new pro_List();
+//			sr.execute(request, response);
+//			viewPage ="/users/hmpr0101R.jsp";
+//		} else if(uri.equals("/izone/users/proWriteView.ga")) {		
+//			viewPage ="/users/hmpr0201W.jsp";
+//		} else if(uri.equals("/izone/users/proWrtie.ga")) {
+//			sr = new pro_Write_Service();
+//			sr.execute(request, response);
+//			viewPage ="/users/proList.ga";
+//		} else if(uri.equals("/izone/users/proContentView.ga")) {
+//			sr = new pro_Contents_Service();
+//			sr.execute(request, response);
+//			viewPage ="/users/hmpr0202W.jsp";
+//		} else if(uri.equals("/izone/users/proUpdate.ga")) {
+//			sr = new pro_Update_Service();
+//			sr.execute(request, response);
+//			viewPage ="/users/proList.ga";
+//		} else if(uri.equals("/izone/users/proDelete.ga")) {
+//			sr = new pro_Delete_Service();
+//			sr.execute(request, response);
+//			viewPage ="/users/proList.ga";
+//		}
 	
 		
 		//페이지 강제이동 forward

@@ -15,7 +15,7 @@ public class stu_Write_Service implements stu_Service {
 		StudentDBBean dao = StudentDBBean.getInstance();
 		String s_no1 = request.getParameter("s_no");
 		int s_no = Integer.parseInt(s_no1);
-		String s_pwd = request.getParameter("s_pwd");
+		String s_pwd = request.getParameter("s_jumin").substring(6, 13);
 		String s_name = request.getParameter("s_name");
 		String s_level1 = request.getParameter("s_level");
 		int s_level = Integer.parseInt(s_level1);

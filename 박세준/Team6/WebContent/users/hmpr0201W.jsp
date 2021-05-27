@@ -49,10 +49,6 @@
         </ul>
     </nav>
 
-    </header>
-    <img src="main2.jpg" alt="" width="100%" >
-    <h2>공지사항</h2>
-
  	<br/>
  	<br/>
     
