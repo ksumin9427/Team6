@@ -14,9 +14,9 @@ import kr.co.koo.izone.util.JdbcUtil;
 
 
 public class StudentDBBean {
-	public static final int LOGIN_SUCCESS = 1;      //濡쒓렇�씤 �꽦怨�
-	public static final int LOGIN_FAIL_ID = -1;     //濡쒓렇�씤 �떎�뙣 - �븰踰� �삤瑜�
-	public static final int LOGIN_FAIL_PW = 0;      //濡쒓렇�씤 �떎�뙣 - 鍮꾨�踰덊샇 �삤瑜�
+	public static final int LOGIN_SUCCESS = 1;      //로그인 성공
+	public static final int LOGIN_FAIL_ID = -1;     //로그인 실패 - 학번 오류
+	public static final int LOGIN_FAIL_PW = 0;      //로그인 실패 - 비밀번호 오류
 
 	private static StudentDBBean dao = new StudentDBBean();
 	private DataSource ds;
@@ -37,7 +37,7 @@ public class StudentDBBean {
 		return dao;
 	}
 	
-	// �븰�깮 �젙蹂� 媛��졇�삤�뒗 硫붿꽌�뱶
+	// 학생 정보 가져오는 메서드
 	public StudentBean getMemberInfo(int s_no) {      
 
 		StudentBean user = null;
@@ -77,9 +77,9 @@ public class StudentDBBean {
 	}
 	
 		
-		// 濡쒓렇�씤�쓽 �쑀�슚�꽦�쓣 寃�利앺븯�뒗 硫붿꽌�뱶 �꽑�뼵.
+		// 로그인의 유효성을 검증하는 메서드 선언.
 		public int userCheck(int s_no, String s_pwd) {
-			// �쟾�떖�맂 �젙蹂대�� 諛뷀깢�쑝濡� 濡쒓렇�씤�씠 �쑀�슚�븳吏�瑜� �뙋�젙�븷 �닔 �엳�뒗 JDBC濡쒖쭅 �옉�꽦
+			// 전달된 정보를 바탕으로 로그인이 유효한지를 판정할 수 있는 JDBC로직 작성
 
 			String sql = "select s_pwd from student where s_no=?";
 
@@ -97,12 +97,12 @@ public class StudentDBBean {
 
 				if (rs.next()) {
 					String dbpw = rs.getString("s_pwd");
-					if (dbpw.equals(s_pwd)) { // 濡쒓렇�씤�뿉 �꽦怨듯뻽�쓣�븣!
+					if (dbpw.equals(s_pwd)) { // 로그인에 성공했을때!
 						result = LOGIN_SUCCESS;
-					} else { // 鍮꾨쾲�씠 ���졇�쓣�븣!
+					} else { // 비번이 틀렸을때!
 						result = LOGIN_FAIL_PW;
 					}
-				} else { // �븘�씠�뵒媛� 議댁옱�븯吏� �븡�뒗寃쎌슦
+				} else { // 아이디가 존재하지 않는경우
 					result = LOGIN_FAIL_ID;
 				}
 			} catch (Exception e) {
@@ -117,7 +117,7 @@ public class StudentDBBean {
 		
 		
 	
-		// 鍮꾨�踰덊샇 �닔�젙�쓣 �쐞�븳 硫붿꽌�뱶 �꽑�뼵.
+		// 비밀번호 수정을 위한 메서드 선언.
 		public boolean changePassword(String s_no, String newPwd){
 			
 			boolean flag = false;
@@ -154,7 +154,7 @@ public class StudentDBBean {
 	
 		
 		
-		//�븰�깮�젙蹂대�� DB�뿉 ���옣�븯�뒗 硫붿꽌�뱶.
+		//학생정보를 DB에 저장하는 메서드.
 		public void write(int s_no, String s_pwd, String s_name, int s_level, String s_jumin, String s_email,
 				String s_tel, int s_status, int MAJOR_no) {
 			
@@ -177,9 +177,9 @@ public class StudentDBBean {
 
 				int i = pstmt.executeUpdate();
 				if(i == 1) {
-					System.out.println("�젙蹂� �벑濡� �꽦怨�!");
+					System.out.println("정보 등록 성공!");
 				} else {
-					System.out.println("�젙蹂� �벑濡� �떎�뙣!");
+					System.out.println("정보 등록 실패!");
 				}
 				
 			} catch (Exception e) {
@@ -193,7 +193,7 @@ public class StudentDBBean {
 		
 		
 		
-		//�븰�깮�젙蹂� 紐⑸줉�쓣 DB濡쒕��꽣 諛쏆븘�삱 硫붿꽌�뱶 �꽑�뼵.
+		//학생정보 목록을 DB로부터 받아올 메서드 선언.
 		public List<StudentBean> getStuInfo(){
 			
 			List<StudentBean> infoList = new ArrayList<>();
@@ -224,7 +224,7 @@ public class StudentDBBean {
 					infoList.add(info);
 				}
 				
-				System.out.println("�븰�깮 �젙蹂� 議고쉶 �셿猷�!");
+				System.out.println("학생 정보 조회 완료!");
 				
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -241,7 +241,7 @@ public class StudentDBBean {
 		
 
 
-		//�쉶�썝�젙蹂� �닔�젙�쓣 泥섎━�븯�뒗 硫붿꽌�뱶 - �븰�깮�슜
+		//회원정보 수정을 처리하는 메서드 - 학생용
 				public boolean updateSTUDENT(StudentBean stu) {
 					boolean flag = false;
 
@@ -275,15 +275,15 @@ public class StudentDBBean {
 					return flag;
 				}
 		
-				//�쉶�썝�젙蹂� �닔�젙�쓣 泥섎━�븯�뒗 硫붿꽌�뱶 - 愿�由ъ옄�슜
-				public void updateSTU(int s_no, String s_pwd, String s_name, int s_level, String s_birth, String s_email,
-						String s_tel, int s_status, int MAJOR_no, String s_jumin) {
+				//회원정보 수정을 처리하는 메서드 - 관리자용
+				public void updateSTU(int s_no, String s_pwd, String s_name, int s_level, String s_jumin, String s_tel, String s_email,
+						 int s_status, int MAJOR_no) {
 					
 
 					Connection conn = null;
 					PreparedStatement pstmt = null;
 
-					String sql = "UPDATE student SET s_pwd=?, s_name=?, s_level=?, s_birth=?, s_email=?, s_tel=?, s_status=?, MAJOR_no=?, s_jumin=? WHERE s_no=?";
+					String sql = "UPDATE student SET s_pwd=?, s_name=?, s_level=?, s_jumin=?, s_tel=?, s_email=?, s_status=?, MAJOR_no=? WHERE s_no=?";
 
 					try {
 						conn = ds.getConnection();
@@ -291,13 +291,12 @@ public class StudentDBBean {
 						pstmt.setString(1, s_pwd);
 						pstmt.setString(2, s_name);
 						pstmt.setInt(3, s_level);
-						pstmt.setString(4, s_birth);
-						pstmt.setString(5, s_email);
-						pstmt.setString(6, s_tel);
+						pstmt.setString(4, s_jumin);
+						pstmt.setString(5, s_tel);
+						pstmt.setString(6, s_email);
 						pstmt.setInt(7, s_status);
 						pstmt.setInt(8, MAJOR_no);
-						pstmt.setString(9, s_jumin);
-						pstmt.setInt(10, s_no);
+						pstmt.setInt(9, s_no);
 
 						pstmt.executeUpdate();
 
@@ -311,7 +310,7 @@ public class StudentDBBean {
 
 				}
 				
-		// �븰�깮�쓽 �젙蹂대�� �궘�젣�븷 硫붿꽌�뱶 �꽑�뼵
+		// 학생의 정보를 삭제할 메서드 선언
 				
 		public void deleteSTU(int s_no) {
 			String sql = "delete from student where s_no = ?";

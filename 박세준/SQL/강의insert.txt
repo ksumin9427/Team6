@@ -1,0 +1,164 @@
+ --재료공학과--
+    --1학년1학기--
+    insert into lecture VALUES(1201,'정보기술활용',1,1,1,10,'월',9,50,1,12,1003);
+    insert into lecture VALUES(1202,'고전읽기와토론',1,1,1,10,'화',10,50,1,12,1003);
+    insert into lecture VALUES(1203,'기초컴퓨터프로그래밍',1,1,1,10,'수',11,50,1,12,1003);
+    insert into lecture VALUES(1204,'열린사고와표현',1,1,1,10,'목',12,50,1,12,1004);
+    insert into lecture VALUES(1205,'대학실용영어(II)',1,1,1,10,'금',13,50,1,12,1004);
+    insert into lecture VALUES(1206,'컴퓨팅사고와인공지능',1,1,1,10,'월',14,50,1,12,1004);
+    insert into lecture VALUES(1207,'일반물리학(I)',1,1,1,10,'화',15,50,1,12,1008);
+    insert into lecture VALUES(1208,'일반물리학실험(I)',1,1,1,10,'수',16,50,1,12,1008);
+    insert into lecture VALUES(1209,'일반화학실험(I)',1,1,1,10,'목',17,50,1,12,1008);
+    
+    --1학년2학기--
+    insert into lecture VALUES(1211,'정보기술활용2',1,2,1,10,'월',9,50,1,12,1003);
+    insert into lecture VALUES(1212,'고전읽기와토론2',1,2,1,10,'화',10,50,1,12,1003);
+    insert into lecture VALUES(1213,'기초컴퓨터프로그래밍2',1,2,1,10,'수',11,50,1,12,1008);
+    insert into lecture VALUES(1214,'열린사고와표현2',1,2,1,10,'목',12,50,1,12,1004);
+    insert into lecture VALUES(1215,'대학실용영어(IV)',1,2,1,10,'금',13,50,1,12,1004);
+    insert into lecture VALUES(1216,'컴퓨팅사고와인공지능2',1,2,1,10,'월',14,50,1,12,1008);
+    
+    --2학년1학기--
+    insert into lecture VALUES(1221,'재료역학',2,1,1,10,'월',9,50,1,12,1003);
+    insert into lecture VALUES(1222,'유기재료화학',2,1,1,10,'화',10,50,1,12,1003);
+    insert into lecture VALUES(1223,'양자물리화학',2,1,1,10,'수',11,50,1,12,1008);
+    insert into lecture VALUES(1224,'재료과학개론(I)',2,1,1,10,'목',12,50,1,12,1004);
+    insert into lecture VALUES(1225,'재료수학',2,1,1,10,'금',13,50,1,12,1004);
+    insert into lecture VALUES(1226,'열역학(I)',2,1,1,10,'월',14,50,1,12,1008);
+    
+    --2학년2학기--
+    insert into lecture VALUES(1231,'재료역학2',2,2,1,10,'월',9,50,1,12,1003);
+    insert into lecture VALUES(1232,'유기재료화학2',2,2,1,10,'화',10,50,1,12,1003);
+    insert into lecture VALUES(1233,'양자물리화학2',2,2,1,10,'수',11,50,1,12,1008);
+    insert into lecture VALUES(1234,'재료과학개론(II)',2,2,1,10,'목',12,50,1,12,1004);
+    insert into lecture VALUES(1235,'재료수학2',2,2,1,10,'금',13,50,1,12,1004);
+    insert into lecture VALUES(1236,'열역학(II)',2,2,1,10,'월',14,50,1,12,1008);
+    
+    --3학년1학기--
+    insert into lecture VALUES(1241,'세라믹재료',3,1,1,10,'월',9,50,1,12,1003);
+    insert into lecture VALUES(1242,'응용재료화학',3,1,1,10,'화',10,50,1,12,1003);
+    insert into lecture VALUES(1243,'이동현상및속도론',3,1,1,10,'수',11,50,1,12,1008);
+    insert into lecture VALUES(1244,'고분자재료개론(I)',3,1,1,10,'목',12,50,1,12,1004);
+    insert into lecture VALUES(1245,'철강신소재',3,1,1,10,'금',13,50,1,12,1004);
+    insert into lecture VALUES(1246,'반도체소자개론',3,1,1,10,'월',14,50,1,12,1008);
+    
+    --3학년2학기--
+    insert into lecture VALUES(1251,'재료빅데이터분석',3,2,1,10,'월',9,50,1,12,1003);
+    insert into lecture VALUES(1252,'X-선회절및결정학',3,2,1,10,'화',10,50,1,12,1003);
+    insert into lecture VALUES(1253,'재료의전자기적성질',3,2,1,10,'수',11,50,1,12,1008);
+    insert into lecture VALUES(1254,'재료과학개론(II)',3,2,1,10,'목',12,50,1,12,1004);
+    insert into lecture VALUES(1255,'재료상평형및상변화',3,2,1,10,'금',13,50,1,12,1004);
+    insert into lecture VALUES(1256,'고분자재료개론(II)',3,2,1,10,'월',14,50,1,12,1008);
+    
+    --4학년1학기--
+    insert into lecture VALUES(1261,'복합재료',4,1,1,10,'월',9,50,1,12,1003);
+    insert into lecture VALUES(1262,'제철제강',4,1,1,10,'화',10,50,1,12,1003);
+    insert into lecture VALUES(1263,'소성가공',4,1,1,10,'수',11,50,1,12,1008);
+    insert into lecture VALUES(1264,'세라믹스공정(I)',4,1,1,10,'목',12,50,1,12,1004);
+    insert into lecture VALUES(1265,'철강신소재',4,1,1,10,'금',13,50,1,12,1004);
+    insert into lecture VALUES(1266,'분체공학',4,1,1,10,'월',14,50,1,12,1008);
+    
+    --4학년2학기--
+    insert into lecture VALUES(1271,'유무기및하이브리드전자재료',4,2,1,10,'월',9,50,1,12,1003);
+    insert into lecture VALUES(1272,'창의적재료종합설계',4,2,1,10,'화',10,50,1,12,1003);
+    insert into lecture VALUES(1273,'재료공학실험 (II)',4,2,1,10,'수',11,50,1,12,1008);
+    insert into lecture VALUES(1274,'세라믹스공정(II)',4,2,1,10,'목',12,50,1,12,1004);
+    insert into lecture VALUES(1275,'철강신소재2',4,2,1,10,'금',13,50,1,12,1004);
+    insert into lecture VALUES(1276,'제철제강',4,2,1,10,'월',14,50,1,12,1008);
+    
+    --체육학과--
+    --1학년1학기--
+    insert into lecture VALUES(1301,'스포츠 심리학',1,1,1,10,'월',9,50,1,13,1005);
+    insert into lecture VALUES(1302,'스포츠 영어',1,1,1,10,'화',10,50,1,13,1005);
+    insert into lecture VALUES(1303,'수영I',1,1,1,10,'수',11,50,1,13,1005);
+    insert into lecture VALUES(1304,'웨이트트레이닝',1,1,1,10,'목',12,50,1,13,1005);
+    insert into lecture VALUES(1305,'채플I',1,1,1,10,'금',13,50,1,13,1009);
+    insert into lecture VALUES(1306,'스포츠사회학',1,1,1,10,'월',14,50,1,13,1006);
+    insert into lecture VALUES(1307,'스포츠 측정평가',1,1,1,10,'화',15,50,1,13,1006);
+    insert into lecture VALUES(1308,'여가레크리에이션',1,1,1,10,'수',16,50,1,13,1006);
+    insert into lecture VALUES(1309,'스포츠정책 및 법',1,1,1,10,'목',17,50,1,13,1009);
+    --1학년2학기--
+    insert into lecture VALUES(1311,'골프1',1,2,1,10,'월',9,50,1,13,1005);
+    insert into lecture VALUES(1312,'GX프로그램1',1,2,1,10,'화',10,50,1,13,1005);
+    insert into lecture VALUES(1313,'생활체육 이론과 실제',1,2,1,10,'수',11,50,1,13,1009);
+    insert into lecture VALUES(1314,'운동과 정신건강',1,2,1,10,'목',12,50,1,13,1005);
+    insert into lecture VALUES(1315,'채플II',1,2,1,10,'금',13,50,1,13,1009);
+    insert into lecture VALUES(1316,'기능해부학',1,2,1,10,'월',14,50,1,13,1006);
+    --2학년1학기--
+    insert into lecture VALUES(1321,'AT이론 및 실체',2,1,1,10,'월',9,50,1,13,1005);
+    insert into lecture VALUES(1322,'트레이닝 방법론',2,1,1,10,'화',10,50,1,13,1009);
+    insert into lecture VALUES(1323,'수영II',2,1,1,10,'수',11,50,1,13,1006);
+    insert into lecture VALUES(1324,'운동역학',2,1,1,10,'목',12,50,1,13,1006);
+    insert into lecture VALUES(1325,'구기스포츠I',2,1,1,10,'금',13,50,1,13,1005);
+    --2학년2학기--
+    insert into lecture VALUES(1331,'골프2',2,2,1,10,'월',9,50,1,13,1005);
+    insert into lecture VALUES(1332,'GX프로그램2',2,2,1,10,'화',10,50,1,13,1009);
+    insert into lecture VALUES(1333,'뉴스포즈',2,2,1,10,'수',11,50,1,13,1005);
+    insert into lecture VALUES(1334,'에어로빅',2,2,1,10,'목',12,50,1,13,1006);
+    insert into lecture VALUES(1335,'여가레크리에이션',2,2,1,10,'금',13,50,1,13,1009);
+    insert into lecture VALUES(1336,'구기스포츠II',2,2,1,10,'월',14,50,1,13,1006);
+    --3학년1학기--
+    insert into lecture VALUES(1341,'댄스스포츠',3,1,1,10,'월',9,50,1,13,1005);
+    insert into lecture VALUES(1342,'수상스포츠',3,1,1,10,'화',10,50,1,13,1005);
+    insert into lecture VALUES(1343,'수영Iv',3,1,1,10,'수',11,50,1,13,1009);
+    insert into lecture VALUES(1344,'운동역학II',3,1,1,10,'목',12,50,1,13,1005);
+    insert into lecture VALUES(1345,'구기스포츠II',3,1,1,10,'금',13,50,1,13,1006);
+    --3학년2학기--
+    insert into lecture VALUES(1351,'현대인과 성서1',3,2,1,10,'월',9,50,1,13,1005);
+    insert into lecture VALUES(1352,'기초체력',3,2,1,10,'화',10,50,1,13,1006);
+    insert into lecture VALUES(1353,'축구',3,2,1,10,'수',11,50,1,13,1009);
+    insert into lecture VALUES(1354,'농구',3,2,1,10,'목',12,50,1,13,1006);
+    insert into lecture VALUES(1355,'웨이트트레이닝2',3,2,1,10,'금',13,50,1,13,1009);
+    insert into lecture VALUES(1356,'구기스포츠IV',3,2,1,10,'월',14,50,1,13,1006);
+    --4학년1학기--
+    insert into lecture VALUES(1361,'댄스스포츠II',4,1,1,10,'월',9,50,1,13,1009);
+    insert into lecture VALUES(1362,'수상스포츠II',4,1,1,10,'화',10,50,1,13,1005);
+    insert into lecture VALUES(1363,'역도',4,1,1,10,'수',11,50,1,13,1006);
+    insert into lecture VALUES(1364,'운동역학IV',4,1,1,10,'목',12,50,1,13,1009);
+    insert into lecture VALUES(1365,'구기스포츠IV',4,1,1,10,'금',13,50,1,13,1005);
+    --4학년2학기--
+    insert into lecture VALUES(1371,'현대인과 성서2',4,2,1,10,'월',9,50,1,13,1009);
+    insert into lecture VALUES(1372,'기초체력II',4,2,1,10,'화',10,50,1,13,1005);
+    insert into lecture VALUES(1373,'축구II',4,2,1,10,'수',11,50,1,13,1006);
+    insert into lecture VALUES(1374,'농구II',4,2,1,10,'목',12,50,1,13,1006);
+    insert into lecture VALUES(1375,'역도II',4,2,1,10,'금',13,50,1,13,1005);
+    insert into lecture VALUES(1376,'교생실습',4,2,1,10,'월',14,50,1,13,1009);
+
+
+--전공번호11--
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1136,'JAVA',1,1,1,20,'목',14,50,'1    ',11,1002);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1101,'기초공학설계',1,1,1,20,'월',9,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1103,'C프로그래밍',1,1,1,20,'월',11,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1104,'C프로그래밍2',1,2,1,20,'월',11,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1102,'기초공학설계2',1,2,1,20,'월',9,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1105,'자료구조',1,1,1,20,'화',11,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1106,'자료구조2',1,2,1,20,'화',11,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1107,'운영체제',1,1,1,10,'수',14,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1108,'운영체제2',1,2,1,10,'수',14,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1109,'알고리즘설계와분석',1,1,1,10,'목',11,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1110,'알고리즘설계와분석2',1,2,1,10,'목',11,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1111,'프로그래밍언어 ',1,1,1,10,'금',13,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1112,'프로그래밍언어2',1,2,1,10,'금',13,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1113,'파일처리 ',2,1,1,10,'화',10,50,'1    ',11,1002);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1114,'파일처리2 ',2,2,1,10,'화',10,50,'1    ',11,1002);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1115,'기초인공지능',2,1,1,10,'수',15,50,'1    ',11,1002);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1116,'기초인공지능2',2,2,1,10,'수',15,50,'1    ',11,1002);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1117,'윈도우프로그래밍',2,1,1,10,'목',15,50,'1    ',11,1002);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1118,'윈도우프로그래밍2',2,2,1,10,'목',15,50,'1    ',11,1002);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1119,'캡스톤디자인 ',2,1,1,10,'금',16,50,'1    ',11,1002);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1120,'캡스톤디자인2',2,2,1,10,'금',16,50,'1    ',11,1002);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1121,'임베디드',3,1,1,10,'월',10,50,'1    ',11,1007);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1122,'임베디드2',3,2,1,10,'월',10,50,'1    ',11,1007);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1123,'컴퓨터논리',3,1,1,10,'화',11,50,'1    ',11,1007);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1124,'컴퓨터논리2',3,2,1,10,'화',11,50,'1    ',11,1007);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1125,'소프트웨어',3,1,1,10,'수',13,50,'1    ',11,1007);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1126,'소프트웨어2',3,2,1,10,'수',13,50,'1    ',11,1007);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1127,'컴퓨터그래픽스',3,1,1,10,'목',15,50,'1    ',11,1007);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1128,'컴퓨터그래픽스2',3,2,1,10,'목',15,50,'1    ',11,1007);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1129,'실습',4,1,1,10,'월',16,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1130,'실습2',4,2,1,10,'월',16,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1131,'고급소프트웨어',4,1,1,10,'화',17,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1132,'고급소프트웨어2',4,2,1,10,'화',17,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1133,'수치컴퓨팅',4,1,1,10,'수',15,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1134,'수치컴퓨팅2',4,2,1,10,'수',15,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1135,'컴퓨터기초',1,1,1,20,'수',13,50,'1    ',11,1002);

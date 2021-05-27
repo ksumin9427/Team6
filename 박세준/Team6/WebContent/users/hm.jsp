@@ -30,7 +30,7 @@
             <li><a href="#">사용자 관리</a>
                 <ul class="sub-ul">
                     <li><a href="/izone/users/stuList.ga">학생 관리</a></li>
-                    <li><a href="/izone/users/proList.ga">교직원 관리</a></li>
+                    <li><a href="#">교직원 관리</a></li>
                 </ul>
             </li>
             <li><a href="#">강의 관리</a>

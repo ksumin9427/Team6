@@ -14,16 +14,15 @@ public class stu_Update_Service implements stu_Service {
 		String s_name = request.getParameter("s_name");
 		String s_level1 = request.getParameter("s_level");
 		int s_level = Integer.parseInt(s_level1);
-		String s_email = request.getParameter("s_email");
 		String s_tel = request.getParameter("s_tel");
+		String s_email = request.getParameter("s_email");
 		String s_status1 = request.getParameter("s_status");
 		int s_status = Integer.parseInt(s_status1);
 		String MAJOR_no1 = request.getParameter("MAJOR_no");
 		int MAJOR_no = Integer.parseInt(MAJOR_no1);
 		String s_jumin = request.getParameter("s_jumin");
-		String s_birth = request.getParameter("s_birth");
-		dao.updateSTU(s_no, s_pwd, s_name, s_level, s_birth, s_email, s_tel,
-				s_status, MAJOR_no, s_jumin);
+		dao.updateSTU(s_no, s_pwd, s_name, s_level, s_jumin, s_tel, s_email, 
+				s_status, MAJOR_no);
 
 	}
 

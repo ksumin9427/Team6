@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
     <title>가산대학교 관리자지원시스템</title>
 </head>
 <body>
@@ -50,9 +51,9 @@
     </nav>
 
     </header>
-    <img src="main2.jpg" alt="" width="100%" >
-    <h2>공지사항</h2>
 
+ 	<br/>
+ 	<br/>
  	<br/>
  	<br/>
  	
@@ -62,12 +63,7 @@
 			</ul>
     	
     	<form action="/izone/users/stuUpdate.ga"  method="post" style="margin-bottom: 0;">
-	<table style="cellpadding: 0; cellspacing: 0; margin: 0 auto; width: 100%">
-		<tr>
-			<td style="padding-top: 10px; text-align: center">
-			</td>
-		</tr>
-
+	<table class="table">
 		<tr>
 			<td style="text-align: left">
 				<p>
@@ -127,30 +123,18 @@
 		<tr>
 			<td style="text-align: left">
 				<p>
-					<strong>이메일주소를 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
+					<strong>주민번호를 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
 				</p>
 			</td>
 		</tr>
 		<tr>
-			<td><input type="email" name="s_email"  required="required"
-				aria-required="true" value="${info.s_email}"
+			<td><input type="text" name="s_jumin"  required="required"
+				aria-required="true" value="${info.s_jumin}"
 				style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
-				placeholder="e-mail"></td>
+				placeholder="주민번호"></td>
 		</tr>
 		
-		<tr>
-			<td style="text-align: left">
-				<p>
-					<strong>생년월일을 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
-				</p>
-			</td>
-		</tr>
-		<tr>
-			<td><input type="text" name="s_birth"  required="required"
-				aria-required="true" value="${info.s_birth}"
-				style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
-				placeholder="생년월일"></td>
-		</tr>
+		
 		
 		<tr>
 			<td style="text-align: left">
@@ -164,6 +148,20 @@
 				aria-required="true"  value="${info.s_tel}"
 				style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
 				placeholder="전화번호"></td>
+		</tr>
+		
+		<tr>
+			<td style="text-align: left">
+				<p>
+					<strong>이메일주소를 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td><input type="email" name="s_email"  required="required"
+				aria-required="true" value="${info.s_email}"
+				style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
+				placeholder="e-mail"></td>
 		</tr>
 		
 		<tr>
@@ -191,31 +189,19 @@
 			<td><input type="text" name="MAJOR_no"  required="required"
 				aria-required="true" value="${info.MAJOR_no}"
 				style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
-				placeholder="잔공번호"></td>
+				placeholder="전공번호"></td>
 		</tr>
 		
-		<tr>
-			<td style="text-align: left">
-				<p>
-					<strong>주민등록번호를 입력하세요.</strong>&nbsp;&nbsp;&nbsp;
-				</p>
-			</td>
-		</tr>
-		<tr>
-			<td><input type="text" name="s_jumin"  required="required"
-				aria-required="true"  value="${info.s_jumin}"
-				style="margin-bottom: 25px; width: 100%; height: 40px; border: 1px solid #d9d9de"
-				placeholder="주민등록번호"></td>
-		</tr>
 
 		<tr>
 			<td style="width: 100%; text-align: center; colspan: 3;">
-			<input
+				<input
 				type="submit" value="수정완료" 
-				style="background-color: #4B89DC; margin-top: 0; height: 40px; color: white; border: 0px solid #388E3C; opacity: 0.8">
-				<a href="/izone/users/stuDelete.ga?s_no=${info.s_no}" onclick="return confirm('정말로 삭제하시겠습니까?')"
-				style="background-color: #4B89DC; margin-top: 0; height: 40px; color: white; border: 0px solid #388E3C; opacity: 0.8">
-				정보삭제</a>
+				style="background-color: white; margin-top: 0; height: 40px; color: #4B89DC; border: 0px solid #388E3C; opacity: 0.8">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/izone/users/stuDelete.ga?s_no=${info.s_no}" onclick="return confirm('정말로 삭제하시겠습니까?')">
+					정보삭제
+				</a>
 			</td>
 		</tr>
 	</table>

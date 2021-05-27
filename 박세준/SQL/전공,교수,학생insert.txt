@@ -1,0 +1,49 @@
+
+--전공major--
+insert into major values('컴퓨터공학과',11);
+insert into major values('재료공학과',12);
+insert into major values('체육학과',13);
+
+
+
+
+--교수professor--
+CREATE TABLE professor(
+    p_no INT PRIMARY KEY,
+    p_pwd VARCHAR(15),
+    p_name varchar(20),
+    p_jumin char(13),
+    p_tel varchar(20),
+    p_email varchar(20),
+    p_room varchar(20),
+    MAJOR_no INT
+);
+
+
+insert into PROFESSOR values (1001,'1901628','박철홍','6505041901628','010-5477-4944','sasasa@naver.com','1',11);
+insert into PROFESSOR values (1002,'1154012','임재식','6706071154012','010-9747-4954','gogi@naver.com','2',11);
+insert into PROFESSOR values (1003,'1451447','허상래','7412111451447','010-9999-3677','beaeba@google..com','3',12);
+insert into PROFESSOR values (1004,'2211057','김상순','6911112211057','010-1121-4774','beneco@naver.com','4',12);
+insert into PROFESSOR values (1005,'1164795','황기춘','6601071164795','010-2247-9954','sojuboy@naver.com','5',13);
+insert into PROFESSOR values (1006,'1159985','임성락','7703011159985','010-4562-1237','rakrock@naver.com','6',13);
+
+
+insert into PROFESSOR values (1007,'2015474','최현옥','6706072015474','010-3214-9874','guraya@naver.com','7',11);
+insert into PROFESSOR values (1008,'1104124','이상구','7412111104124','010-1101-9575','choite@google..com','8',12);
+insert into PROFESSOR values (1009,'1452368','정휘신','6601071452368','010-1459-6664','borabo@naver.com','9',13);
+
+
+
+--학생--
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20180001,'1000001','박세준',4,'9600011000001','010-1111-1111','a@naver.com',1,11);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20190001,'1000002','박가람',3,'9700011000002','010-1111-1112','b@naver.com',1,11);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20200001,'1000003','이흥준',2,'9800011000003','010-1111-1113','c@naver.com',1,11);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20210001,'1000004','최진웅',1,'9900011000004','010-1111-1114','d@naver.com',1,11);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20210002,'1000005','홍길동',1,'9900011000005','010-1111-1115','e@naver.com',1,12);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20210003,'1000006','홍길순',1,'9900011000006','010-1111-1116','f@naver.com',1,12);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20210004,'1000007','김철수',1,'9900011000007','010-1111-1117','g@naver.com',1,12);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20210005,'1000008','김영희',1,'9900011000008','010-1111-1118','h@naver.com',1,12);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20210006,'1000009','김민석',1,'9900011000009','010-1111-1119','i@naver.com',1,13);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20210007,'1000010','장지환',1,'9900011000010','010-1111-1120','j@naver.com',1,13);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20210008,'1000011','김승우',1,'9900011000011','010-1111-1121','k@naver.com',1,13);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20210009,'1000012','박수한',1,'9900011000012','010-1111-1122','l@naver.com',1,13);
