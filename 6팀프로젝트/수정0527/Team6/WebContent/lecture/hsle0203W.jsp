@@ -3,8 +3,10 @@
     pageEncoding="EUC-KR"%>
 <%
 	//학생 코드 request 로 받을거
-	int s_no = 1;
-	//삭제할부분.
+	int s_no =0;
+	if(session.getAttribute("id") != null){
+		s_no = Integer.parseInt((String)session.getAttribute("id"));
+	}
 	int l_no = Integer.parseInt(request.getParameter("l_no"));
 	int major_no = Integer.parseInt(request.getParameter("major_no"));
 	lecture.LectureDBBean dbbean = lecture.LectureDBBean.getinstance();

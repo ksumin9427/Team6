@@ -5,9 +5,16 @@
     pageEncoding="EUC-KR"%>
 <%
 	//나중에 여기서 아이디섹션을 받아올 예정입니다.
+	int code=0;
+	int s_no =0;
+	if(session.getAttribute("id") != null){
+		s_no = Integer.parseInt((String)session.getAttribute("id"));
+		code = ((Integer)(session.getAttribute("code"))).intValue();
+	}
+	System.out.println(s_no+"-"+code+"-"+(s_no+code));
 %>
 <%
-	int s_no=20180001;
+	//int s_no=20180001;
 %>
 <html>
 <head>

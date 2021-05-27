@@ -4,8 +4,10 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%
-	//int id = Integer.parseInt((String)session.getAttribute("id"));
-	int id = 1003;
+	int id =0;
+	if(session.getAttribute("id") != null){
+		id = Integer.parseInt((String)session.getAttribute("id"));
+	}
 	
 	ScoreDBBean db = ScoreDBBean.getInstance();
 	ArrayList<LectureBean> list = db.getLectureList(id);
@@ -24,7 +26,7 @@
 	<hr>
     <h4>강의목록</h4>
     <form action="" method="post">
-    	<table class="table table-bordered">
+    	<table class="table table-bordered table-striped">
 		<tr>
     			<th>강의번호</th>
     			<th>강의명</th>

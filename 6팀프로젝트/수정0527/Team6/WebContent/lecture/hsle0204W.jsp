@@ -5,7 +5,10 @@
 	pageEncoding="EUC-KR"%>
 <%
 	//데이터 인설트 하는코드
-	int s_no = 1; //학생번호 받아올예정
+	int s_no =0;
+	if(session.getAttribute("id") != null){
+		s_no = Integer.parseInt((String)session.getAttribute("id"));
+	}
 	int l_no = Integer.parseInt(request.getParameter("l_no"));
 	int major_no = Integer.parseInt(request.getParameter("major_no"));
 	lecture.LectureDBBean dbbean = lecture.LectureDBBean.getinstance();

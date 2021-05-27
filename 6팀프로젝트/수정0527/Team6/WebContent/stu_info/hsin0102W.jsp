@@ -28,9 +28,24 @@
 <meta charset="UTF-8">
 <title>학적사항</title>
 	<script type="text/javascript" src="confirm.js" charset="utf-8" ></script>
+	<style>
+		table td{
+			padding: 10px;
+		}
+	</style>
 </head>
 <body>
     <center>
+    <div id="page">
+		<jsp:include page="../common/pro_menu.jsp"></jsp:include>
+		<br>
+		<br>
+		   <table class="thead">
+              <center><h1 class="tname">학생정보 수정</h1></center>
+                 <tr>
+                   <td colspan="2"><img src="../images/zzz.png" width="190px" height="210px"></td>
+                 </tr>
+           </table>	
     <form action="hsin0103W.jsp" name="form" method="post">
     <table>
     	<tr>
@@ -65,8 +80,9 @@
     			<input type="button" value="취소" onclick="location.href='hsin0101R.jsp'"> 
     		</td>
     	</tr>
-    </table>
-    </form>
-    </center>
+	    </table>
+	    </form>
+	    </center>
+    </div>
 </body>
 </html>

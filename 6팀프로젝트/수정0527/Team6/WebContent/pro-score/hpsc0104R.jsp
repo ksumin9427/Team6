@@ -6,14 +6,12 @@
     pageEncoding="UTF-8"%>
 <% 
 	int l_no = Integer.parseInt(request.getParameter("l_no"));
-	//String l_name = HanConv.toKor(request.getParameter("l_name"));
 	
 	//성적확정유무 확인
 	int isConfirm = 0;
 	if(request.getParameter("isConfirm") != null){
 		isConfirm = 1;
 	}
-	//System.out.println("@@@@@@@@@@"+l_no+"  @@@@@@"+l_name);
 	
 	ScoreDBBean db = ScoreDBBean.getInstance();
 	ArrayList<ExamBean> examList = db.getExamList(l_no);
@@ -26,57 +24,15 @@
 <title>Insert title here</title>
 	<script type="text/javascript" src="score.js" charset="UTF-8" ></script>
 </head>
-<style type="text/css">
-		td{padding: 5px}
-	</style>
 <body>
     <div id="page">
-    <header>
-        <div class="top_bg">
-        <div class="top-left-header">
-            <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">LOGOUT</a></li>
-            </ul>
-        </div>
-    </div>
-        <div class="logo">
-            <h1><img src="../images/kasanlogo2.jpg" alt="KASAN UNIVERSITY" >
-                가산대학교</h1>
-        </div>
+	<jsp:include page="../common/pro_menu.jsp"></jsp:include>
+	<center>
+	<hr>
 
-        <ul class="main-ul">
-            <li><a href="#">수업</a>
-                <ul class="sub-ul">
-                    <li><a href="#">강좌조회</a></li>
-                    <li><a href="#">시간표조회</a></li>
-                </ul>
-            </li>
-            <li><a href="#">성적</a>
-                <ul class="sub-ul">
-                    <li><a href="#">학생 조회</a></li>
-                    <li><a href="#">성적입력 및 수정</a></li>
-                </ul>
-            </li>
-
-            <li><a href="#">게시판</a>
-                <ul class="sub-ul">
-                    <li><a href="#">공지사항</a></li>
-                    <li><a href="#">자유게시판</a></li>
-                </ul>
-            </li>
-            <li><a href="#">마이페이지</a>
-                <ul class="sub-ul">
-                    <li><a href="#">개인신상조회</a></li>
-                    <li><a href="#">학생조회</a></li>
-                </ul>
-            </li>
-        </ul>
-    </header>
-
-	<table border="1">
+	<table class="table table-bordered table-striped">
 		<tr>
-		    <td colspan="7"> 강의명: <%=l_no%> </td>
+		    <td colspan="8"> 강의번호: <%=l_no%> </td>
 		</tr>
     	<tr>
     		<th>학번</th>
@@ -134,13 +90,7 @@
     	%>
 	<input type="button" value="처음으로" onclick="location.href='hpsc0101R.jsp'">
 	
-	<footer>
-        <ul>
-            <li>부산 부산진구 중앙대로 688</li>
-            <li>TEL : 051-912-1000</li>
-            <li>copyrights (C) KASAN UNIVERSITY. ALL RIGHTS RESERVED</li>
-        </ul>
-    </footer>
+	<jsp:include page="../common/footer.jsp"></jsp:include>
 </div>
 </body>
 </html>

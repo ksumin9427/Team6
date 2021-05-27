@@ -135,6 +135,7 @@
                                     <td><%=pro.getP_room() %></td>
                                 </tr>
                                 <%} %>
+                                <hr>
                                 <tr>
                                 	<td><a href="hpin0201W.jsp?p_no=<%=p_no %>" class="button">수정하기</a></td>
                                 </tr>

@@ -7,7 +7,6 @@
     pageEncoding="EUC-KR"%>
 <%
 	int l_no = Integer.parseInt(request.getParameter("l_no"));
-	//String l_name = request.getParameter("l_name");
 	int l_sem = Integer.parseInt(request.getParameter("l_sem"));
 	
 	ScoreDBBean db = ScoreDBBean.getInstance();
@@ -34,7 +33,7 @@
 	<hr>
 	<h4>성적 입력</h4>
     <form action="hpsc0103R.jsp?l_no=<%=l_no%>&l_sem=<%=l_sem%>" method="post">
-    	<table class="table table-bordered" border="1" cellspacing="0" width="800">
+    	<table class="table table-striped table-bordered">
     		<tr>
 		    	<td colspan="5"> 강의번호: <%=l_no%> </td>
 		    </tr>
