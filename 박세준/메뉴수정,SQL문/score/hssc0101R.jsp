@@ -11,7 +11,11 @@
 	ResultSet rs=null;
 	
 	//int c_stuno = Integer.parseInt(request.getParameter("c_stuno"));
-	int c_stuno = 1;
+	int c_stuno=0;
+	if(session.getAttribute("id") != null){
+		c_stuno = Integer.parseInt((String)session.getAttribute("id"));
+	}
+	
 	String url="jdbc:oracle:thin:@localhost:1521:xe";
 	String user="team6";
 	String password="1234";
