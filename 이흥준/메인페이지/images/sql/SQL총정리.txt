@@ -1,0 +1,383 @@
+drop table board_p;
+drop table board_s;
+drop table notice;
+drop table manager;
+drop table score;
+drop table lecture;
+drop table professor;
+drop table student;
+drop table major;
+drop table lecture_a;
+drop table exam;
+
+CREATE TABLE board_p (
+    bp_no       NUMBER(5) NOT NULL,
+    bp_name     VARCHAR2(20),
+    bp_title    VARCHAR2(80),
+    bp_content  VARCHAR2(3000),
+    bp_date     DATE,
+    bp_hit      NUMBER(5),
+    bp_ref      NUMBER(5),
+    bp_step     NUMBER(5),
+    bp_level    NUMBER(5)
+);
+
+ALTER TABLE board_p ADD CONSTRAINT board_sv1_pk PRIMARY KEY ( bp_no );
+
+CREATE TABLE board_s (
+    bs_no       NUMBER(5) NOT NULL,
+    bs_name     VARCHAR2(20),
+    bs_title    VARCHAR2(80),
+    bs_content  VARCHAR2(3000),
+    bs_date     DATE,
+    bs_hit      NUMBER(5),
+    bs_ref      NUMBER(5),
+    bs_step     NUMBER(5),
+    bs_level    NUMBER(5)
+);
+
+ALTER TABLE board_s ADD CONSTRAINT board_s_pk PRIMARY KEY ( bs_no );
+
+CREATE TABLE lecture (
+    l_no            NUMBER(10) NOT NULL,
+    l_name          VARCHAR2(50),
+    l_level         NUMBER(1),
+    l_sem           NUMBER(1),
+    l_unit          NUMBER(5),
+    l_max           NUMBER(5),
+    l_day           VARCHAR2(20),
+    l_start         NUMBER(5),
+    l_time          NUMBER(5),
+    l_com           CHAR(5),
+    major_no        NUMBER(10) NOT NULL,
+    professor_p_no  NUMBER(8) NOT NULL
+);
+
+ALTER TABLE lecture ADD CONSTRAINT lecture_pk PRIMARY KEY ( l_no );
+
+CREATE TABLE major (
+    name  VARCHAR2(50),
+    no    NUMBER(10) NOT NULL
+);
+
+ALTER TABLE major ADD CONSTRAINT major_pk PRIMARY KEY ( no );
+
+CREATE TABLE manager (
+    m_no    NUMBER(10) NOT NULL,
+    m_name  VARCHAR2(20),
+    m_pwd   VARCHAR2(12)
+);
+
+ALTER TABLE manager ADD CONSTRAINT manager_pk PRIMARY KEY ( m_no );
+
+CREATE TABLE NOTICE
+   (N_NO NUMBER(5,0), 
+	N_DIV VARCHAR2(20 BYTE), 
+	N_NAME VARCHAR2(20 BYTE), 
+	N_EMAIL VARCHAR2(50 BYTE), 
+	N_TITLE VARCHAR2(80 BYTE), 
+	N_CONTENT VARCHAR2(3000 BYTE), 
+	N_PWD VARCHAR2(12 BYTE), 
+	N_DATE DATE, 
+	N_HIT NUMBER(5,0) DEFAULT 0, 
+	N_FNAME VARCHAR2(100 BYTE), 
+	N_FSIZE NUMBER(10,0), 
+	N_RFNAME VARCHAR2(100 BYTE), 
+	 PRIMARY KEY ("N_NO")
+);
+
+CREATE TABLE professor(
+    p_no INT,
+    p_pwd VARCHAR(15),
+    p_name varchar(20),
+    p_jumin char(13),
+    p_tel varchar(20),
+    p_email varchar(20),
+    p_room varchar(20),
+    MAJOR_no INT
+);
+
+ALTER TABLE professor ADD CONSTRAINT professor_pk PRIMARY KEY ( p_no );
+
+CREATE TABLE score (
+    student_s_no    NUMBER(8) NOT NULL,
+    professor_p_no  NUMBER(8) NOT NULL,
+    lecture_l_no    NUMBER(10) NOT NULL,
+    c_score         CHAR(2),
+    c_sem           NUMBER(1),
+    c_year          NUMBER(4)
+);
+
+CREATE TABLE STUDENT (	
+    "S_NO" NUMBER(8,0) NOT NULL ENABLE, 
+	"S_PWD" VARCHAR2(12 BYTE), 
+	"S_NAME" VARCHAR2(20 BYTE), 
+	"S_LEVEL" NUMBER(1,0), 
+	"S_JUMIN" VARCHAR2(13 BYTE), 
+	"S_TEL" VARCHAR2(13 BYTE), 
+	"S_EMAIL" VARCHAR2(50 BYTE), 
+	"S_STATUS" NUMBER(1,0), 
+	"MAJOR_NO" NUMBER(10,0) NOT NULL ENABLE 
+);
+
+ALTER TABLE student ADD CONSTRAINT student_pk PRIMARY KEY ( s_no );
+
+ALTER TABLE lecture
+    ADD CONSTRAINT lecture_major_fk FOREIGN KEY ( major_no )
+        REFERENCES major ( no );
+
+ALTER TABLE lecture
+    ADD CONSTRAINT lecture_professor_fk FOREIGN KEY ( professor_p_no )
+        REFERENCES professor ( p_no );
+
+ALTER TABLE professor
+    ADD CONSTRAINT professor_major_fk FOREIGN KEY ( major_no )
+        REFERENCES major ( no );
+
+ALTER TABLE score
+    ADD CONSTRAINT score_lecture_fk FOREIGN KEY ( lecture_l_no )
+        REFERENCES lecture ( l_no );
+
+ALTER TABLE score
+    ADD CONSTRAINT score_professor_fk FOREIGN KEY ( professor_p_no )
+        REFERENCES professor ( p_no );
+
+ALTER TABLE score
+    ADD CONSTRAINT score_student_fk FOREIGN KEY ( student_s_no )
+        REFERENCES student ( s_no );
+
+ALTER TABLE student
+    ADD CONSTRAINT student_major_fk FOREIGN KEY ( major_no )
+        REFERENCES major ( no );
+        
+
+--전공major--
+insert into major values('컴퓨터공학과',11);
+insert into major values('재료공학과',12);
+insert into major values('체육학과',13);
+
+
+--학생--
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20180001,'1000001','박세준',4,'9600011000001','010-1111-1111','a@naver.com',1,11);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20190001,'1000002','박가람',3,'9700011000002','010-1111-1112','b@naver.com',1,11);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20200001,'1000003','이흥준',2,'9800011000003','010-1111-1113','c@naver.com',1,11);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20210001,'1000004','최진웅',1,'9900011000004','010-1111-1114','d@naver.com',1,11);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20210002,'1000005','홍길동',1,'9900011000005','010-1111-1115','e@naver.com',1,12);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20210003,'1000006','홍길순',1,'9900011000006','010-1111-1116','f@naver.com',1,12);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20210004,'1000007','김철수',1,'9900011000007','010-1111-1117','g@naver.com',1,12);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20210005,'1000008','김영희',1,'9900011000008','010-1111-1118','h@naver.com',1,12);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20210006,'1000009','김민석',1,'9900011000009','010-1111-1119','i@naver.com',1,13);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20210007,'1000010','장지환',1,'9900011000010','010-1111-1120','j@naver.com',1,13);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20210008,'1000011','김승우',1,'9900011000011','010-1111-1121','k@naver.com',1,13);
+Insert into STUDENT (S_NO,S_PWD,S_NAME,S_LEVEL,S_JUMIN,S_TEL,S_EMAIL,S_STATUS,MAJOR_NO) values (20210009,'1000012','박수한',1,'9900011000012','010-1111-1122','l@naver.com',1,13);
+
+
+insert into PROFESSOR values (1001,'1901628','박철홍','6505041901628','010-5477-4944','sasasa@naver.com','1',11);
+insert into PROFESSOR values (1002,'1154012','임재식','6706071154012','010-9747-4954','gogi@naver.com','2',11);
+insert into PROFESSOR values (1003,'1451447','허상래','7412111451447','010-9999-3677','beaeba@google..com','3',12);
+insert into PROFESSOR values (1004,'2211057','김상순','6911112211057','010-1121-4774','beneco@naver.com','4',12);
+insert into PROFESSOR values (1005,'1164795','황기춘','6601071164795','010-2247-9954','sojuboy@naver.com','5',13);
+insert into PROFESSOR values (1006,'1159985','임성락','7703011159985','010-4562-1237','rakrock@naver.com','6',13);
+
+
+insert into PROFESSOR values (1007,'2015474','최현옥','6706072015474','010-3214-9874','guraya@naver.com','7',11);
+insert into PROFESSOR values (1008,'1104124','이상구','7412111104124','010-1101-9575','choite@google..com','8',12);
+insert into PROFESSOR values (1009,'1452368','정휘신','6601071452368','010-1459-6664','borabo@naver.com','9',13);
+
+
+ --재료공학과--
+    --1학년1학기--
+    insert into lecture VALUES(1201,'정보기술활용',1,1,1,10,'월',9,50,1,12,1003);
+    insert into lecture VALUES(1202,'고전읽기와토론',1,1,1,10,'화',10,50,1,12,1003);
+    insert into lecture VALUES(1203,'기초컴퓨터프로그래밍',1,1,1,10,'수',11,50,1,12,1003);
+    insert into lecture VALUES(1204,'열린사고와표현',1,1,1,10,'목',12,50,1,12,1004);
+    insert into lecture VALUES(1205,'대학실용영어(II)',1,1,1,10,'금',13,50,1,12,1004);
+    insert into lecture VALUES(1206,'컴퓨팅사고와인공지능',1,1,1,10,'월',14,50,1,12,1004);
+    insert into lecture VALUES(1207,'일반물리학(I)',1,1,1,10,'화',15,50,1,12,1008);
+    insert into lecture VALUES(1208,'일반물리학실험(I)',1,1,1,10,'수',16,50,1,12,1008);
+    insert into lecture VALUES(1209,'일반화학실험(I)',1,1,1,10,'목',17,50,1,12,1008);
+    
+    --1학년2학기--
+    insert into lecture VALUES(1211,'정보기술활용2',1,2,1,10,'월',9,50,1,12,1003);
+    insert into lecture VALUES(1212,'고전읽기와토론2',1,2,1,10,'화',10,50,1,12,1003);
+    insert into lecture VALUES(1213,'기초컴퓨터프로그래밍2',1,2,1,10,'수',11,50,1,12,1008);
+    insert into lecture VALUES(1214,'열린사고와표현2',1,2,1,10,'목',12,50,1,12,1004);
+    insert into lecture VALUES(1215,'대학실용영어(IV)',1,2,1,10,'금',13,50,1,12,1004);
+    insert into lecture VALUES(1216,'컴퓨팅사고와인공지능2',1,2,1,10,'월',14,50,1,12,1008);
+    
+    --2학년1학기--
+    insert into lecture VALUES(1221,'재료역학',2,1,1,10,'월',9,50,1,12,1003);
+    insert into lecture VALUES(1222,'유기재료화학',2,1,1,10,'화',10,50,1,12,1003);
+    insert into lecture VALUES(1223,'양자물리화학',2,1,1,10,'수',11,50,1,12,1008);
+    insert into lecture VALUES(1224,'재료과학개론(I)',2,1,1,10,'목',12,50,1,12,1004);
+    insert into lecture VALUES(1225,'재료수학',2,1,1,10,'금',13,50,1,12,1004);
+    insert into lecture VALUES(1226,'열역학(I)',2,1,1,10,'월',14,50,1,12,1008);
+    
+    --2학년2학기--
+    insert into lecture VALUES(1231,'재료역학2',2,2,1,10,'월',9,50,1,12,1003);
+    insert into lecture VALUES(1232,'유기재료화학2',2,2,1,10,'화',10,50,1,12,1003);
+    insert into lecture VALUES(1233,'양자물리화학2',2,2,1,10,'수',11,50,1,12,1008);
+    insert into lecture VALUES(1234,'재료과학개론(II)',2,2,1,10,'목',12,50,1,12,1004);
+    insert into lecture VALUES(1235,'재료수학2',2,2,1,10,'금',13,50,1,12,1004);
+    insert into lecture VALUES(1236,'열역학(II)',2,2,1,10,'월',14,50,1,12,1008);
+    
+    --3학년1학기--
+    insert into lecture VALUES(1241,'세라믹재료',3,1,1,10,'월',9,50,1,12,1003);
+    insert into lecture VALUES(1242,'응용재료화학',3,1,1,10,'화',10,50,1,12,1003);
+    insert into lecture VALUES(1243,'이동현상및속도론',3,1,1,10,'수',11,50,1,12,1008);
+    insert into lecture VALUES(1244,'고분자재료개론(I)',3,1,1,10,'목',12,50,1,12,1004);
+    insert into lecture VALUES(1245,'철강신소재',3,1,1,10,'금',13,50,1,12,1004);
+    insert into lecture VALUES(1246,'반도체소자개론',3,1,1,10,'월',14,50,1,12,1008);
+    
+    --3학년2학기--
+    insert into lecture VALUES(1251,'재료빅데이터분석',3,2,1,10,'월',9,50,1,12,1003);
+    insert into lecture VALUES(1252,'X-선회절및결정학',3,2,1,10,'화',10,50,1,12,1003);
+    insert into lecture VALUES(1253,'재료의전자기적성질',3,2,1,10,'수',11,50,1,12,1008);
+    insert into lecture VALUES(1254,'재료과학개론(II)',3,2,1,10,'목',12,50,1,12,1004);
+    insert into lecture VALUES(1255,'재료상평형및상변화',3,2,1,10,'금',13,50,1,12,1004);
+    insert into lecture VALUES(1256,'고분자재료개론(II)',3,2,1,10,'월',14,50,1,12,1008);
+    
+    --4학년1학기--
+    insert into lecture VALUES(1261,'복합재료',4,1,1,10,'월',9,50,1,12,1003);
+    insert into lecture VALUES(1262,'제철제강',4,1,1,10,'화',10,50,1,12,1003);
+    insert into lecture VALUES(1263,'소성가공',4,1,1,10,'수',11,50,1,12,1008);
+    insert into lecture VALUES(1264,'세라믹스공정(I)',4,1,1,10,'목',12,50,1,12,1004);
+    insert into lecture VALUES(1265,'철강신소재',4,1,1,10,'금',13,50,1,12,1004);
+    insert into lecture VALUES(1266,'분체공학',4,1,1,10,'월',14,50,1,12,1008);
+    
+    --4학년2학기--
+    insert into lecture VALUES(1271,'유무기및하이브리드전자재료',4,2,1,10,'월',9,50,1,12,1003);
+    insert into lecture VALUES(1272,'창의적재료종합설계',4,2,1,10,'화',10,50,1,12,1003);
+    insert into lecture VALUES(1273,'재료공학실험 (II)',4,2,1,10,'수',11,50,1,12,1008);
+    insert into lecture VALUES(1274,'세라믹스공정(II)',4,2,1,10,'목',12,50,1,12,1004);
+    insert into lecture VALUES(1275,'철강신소재2',4,2,1,10,'금',13,50,1,12,1004);
+    insert into lecture VALUES(1276,'제철제강',4,2,1,10,'월',14,50,1,12,1008);
+    
+    --체육학과--
+    --1학년1학기--
+    insert into lecture VALUES(1301,'스포츠 심리학',1,1,1,10,'월',9,50,1,13,1005);
+    insert into lecture VALUES(1302,'스포츠 영어',1,1,1,10,'화',10,50,1,13,1005);
+    insert into lecture VALUES(1303,'수영I',1,1,1,10,'수',11,50,1,13,1005);
+    insert into lecture VALUES(1304,'웨이트트레이닝',1,1,1,10,'목',12,50,1,13,1005);
+    insert into lecture VALUES(1305,'채플I',1,1,1,10,'금',13,50,1,13,1009);
+    insert into lecture VALUES(1306,'스포츠사회학',1,1,1,10,'월',14,50,1,13,1006);
+    insert into lecture VALUES(1307,'스포츠 측정평가',1,1,1,10,'화',15,50,1,13,1006);
+    insert into lecture VALUES(1308,'여가레크리에이션',1,1,1,10,'수',16,50,1,13,1006);
+    insert into lecture VALUES(1309,'스포츠정책 및 법',1,1,1,10,'목',17,50,1,13,1009);
+    --1학년2학기--
+    insert into lecture VALUES(1311,'골프1',1,2,1,10,'월',9,50,1,13,1005);
+    insert into lecture VALUES(1312,'GX프로그램1',1,2,1,10,'화',10,50,1,13,1005);
+    insert into lecture VALUES(1313,'생활체육 이론과 실제',1,2,1,10,'수',11,50,1,13,1009);
+    insert into lecture VALUES(1314,'운동과 정신건강',1,2,1,10,'목',12,50,1,13,1005);
+    insert into lecture VALUES(1315,'채플II',1,2,1,10,'금',13,50,1,13,1009);
+    insert into lecture VALUES(1316,'기능해부학',1,2,1,10,'월',14,50,1,13,1006);
+    --2학년1학기--
+    insert into lecture VALUES(1321,'AT이론 및 실체',2,1,1,10,'월',9,50,1,13,1005);
+    insert into lecture VALUES(1322,'트레이닝 방법론',2,1,1,10,'화',10,50,1,13,1009);
+    insert into lecture VALUES(1323,'수영II',2,1,1,10,'수',11,50,1,13,1006);
+    insert into lecture VALUES(1324,'운동역학',2,1,1,10,'목',12,50,1,13,1006);
+    insert into lecture VALUES(1325,'구기스포츠I',2,1,1,10,'금',13,50,1,13,1005);
+    --2학년2학기--
+    insert into lecture VALUES(1331,'골프2',2,2,1,10,'월',9,50,1,13,1005);
+    insert into lecture VALUES(1332,'GX프로그램2',2,2,1,10,'화',10,50,1,13,1009);
+    insert into lecture VALUES(1333,'뉴스포즈',2,2,1,10,'수',11,50,1,13,1005);
+    insert into lecture VALUES(1334,'에어로빅',2,2,1,10,'목',12,50,1,13,1006);
+    insert into lecture VALUES(1335,'여가레크리에이션',2,2,1,10,'금',13,50,1,13,1009);
+    insert into lecture VALUES(1336,'구기스포츠II',2,2,1,10,'월',14,50,1,13,1006);
+    --3학년1학기--
+    insert into lecture VALUES(1341,'댄스스포츠',3,1,1,10,'월',9,50,1,13,1005);
+    insert into lecture VALUES(1342,'수상스포츠',3,1,1,10,'화',10,50,1,13,1005);
+    insert into lecture VALUES(1343,'수영Iv',3,1,1,10,'수',11,50,1,13,1009);
+    insert into lecture VALUES(1344,'운동역학II',3,1,1,10,'목',12,50,1,13,1005);
+    insert into lecture VALUES(1345,'구기스포츠II',3,1,1,10,'금',13,50,1,13,1006);
+    --3학년2학기--
+    insert into lecture VALUES(1351,'현대인과 성서1',3,2,1,10,'월',9,50,1,13,1005);
+    insert into lecture VALUES(1352,'기초체력',3,2,1,10,'화',10,50,1,13,1006);
+    insert into lecture VALUES(1353,'축구',3,2,1,10,'수',11,50,1,13,1009);
+    insert into lecture VALUES(1354,'농구',3,2,1,10,'목',12,50,1,13,1006);
+    insert into lecture VALUES(1355,'웨이트트레이닝2',3,2,1,10,'금',13,50,1,13,1009);
+    insert into lecture VALUES(1356,'구기스포츠IV',3,2,1,10,'월',14,50,1,13,1006);
+    --4학년1학기--
+    insert into lecture VALUES(1361,'댄스스포츠II',4,1,1,10,'월',9,50,1,13,1009);
+    insert into lecture VALUES(1362,'수상스포츠II',4,1,1,10,'화',10,50,1,13,1005);
+    insert into lecture VALUES(1363,'역도',4,1,1,10,'수',11,50,1,13,1006);
+    insert into lecture VALUES(1364,'운동역학IV',4,1,1,10,'목',12,50,1,13,1009);
+    insert into lecture VALUES(1365,'구기스포츠IV',4,1,1,10,'금',13,50,1,13,1005);
+    --4학년2학기--
+    insert into lecture VALUES(1371,'현대인과 성서2',4,2,1,10,'월',9,50,1,13,1009);
+    insert into lecture VALUES(1372,'기초체력II',4,2,1,10,'화',10,50,1,13,1005);
+    insert into lecture VALUES(1373,'축구II',4,2,1,10,'수',11,50,1,13,1006);
+    insert into lecture VALUES(1374,'농구II',4,2,1,10,'목',12,50,1,13,1006);
+    insert into lecture VALUES(1375,'역도II',4,2,1,10,'금',13,50,1,13,1005);
+    insert into lecture VALUES(1376,'교생실습',4,2,1,10,'월',14,50,1,13,1009);
+
+
+--전공번호11--
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1136,'JAVA',1,1,1,20,'목',14,50,'1    ',11,1002);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1101,'기초공학설계',1,1,1,20,'월',9,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1103,'C프로그래밍',1,1,1,20,'월',11,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1104,'C프로그래밍2',1,2,1,20,'월',11,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1102,'기초공학설계2',1,2,1,20,'월',9,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1105,'자료구조',1,1,1,20,'화',11,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1106,'자료구조2',1,2,1,20,'화',11,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1107,'운영체제',1,1,1,10,'수',14,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1108,'운영체제2',1,2,1,10,'수',14,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1109,'알고리즘설계와분석',1,1,1,10,'목',11,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1110,'알고리즘설계와분석2',1,2,1,10,'목',11,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1111,'프로그래밍언어 ',1,1,1,10,'금',13,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1112,'프로그래밍언어2',1,2,1,10,'금',13,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1113,'파일처리 ',2,1,1,10,'화',10,50,'1    ',11,1002);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1114,'파일처리2 ',2,2,1,10,'화',10,50,'1    ',11,1002);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1115,'기초인공지능',2,1,1,10,'수',15,50,'1    ',11,1002);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1116,'기초인공지능2',2,2,1,10,'수',15,50,'1    ',11,1002);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1117,'윈도우프로그래밍',2,1,1,10,'목',15,50,'1    ',11,1002);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1118,'윈도우프로그래밍2',2,2,1,10,'목',15,50,'1    ',11,1002);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1119,'캡스톤디자인 ',2,1,1,10,'금',16,50,'1    ',11,1002);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1120,'캡스톤디자인2',2,2,1,10,'금',16,50,'1    ',11,1002);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1121,'임베디드',3,1,1,10,'월',10,50,'1    ',11,1007);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1122,'임베디드2',3,2,1,10,'월',10,50,'1    ',11,1007);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1123,'컴퓨터논리',3,1,1,10,'화',11,50,'1    ',11,1007);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1124,'컴퓨터논리2',3,2,1,10,'화',11,50,'1    ',11,1007);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1125,'소프트웨어',3,1,1,10,'수',13,50,'1    ',11,1007);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1126,'소프트웨어2',3,2,1,10,'수',13,50,'1    ',11,1007);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1127,'컴퓨터그래픽스',3,1,1,10,'목',15,50,'1    ',11,1007);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1128,'컴퓨터그래픽스2',3,2,1,10,'목',15,50,'1    ',11,1007);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1129,'실습',4,1,1,10,'월',16,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1130,'실습2',4,2,1,10,'월',16,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1131,'고급소프트웨어',4,1,1,10,'화',17,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1132,'고급소프트웨어2',4,2,1,10,'화',17,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1133,'수치컴퓨팅',4,1,1,10,'수',15,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1134,'수치컴퓨팅2',4,2,1,10,'수',15,50,'1    ',11,1001);
+Insert into LECTURE (L_NO,L_NAME,L_LEVEL,L_SEM,L_UNIT,L_MAX,L_DAY,L_START,L_TIME,L_COM,MAJOR_NO,PROFESSOR_P_NO) values (1135,'컴퓨터기초',1,1,1,20,'수',13,50,'1    ',11,1002);
+
+
+
+CREATE TABLE LECTURE_A 
+(S_NO NUMBER(8,0), 
+L_NO NUMBER(10,0));
+
+insert into lecture_a values(20210001,1201);
+insert into lecture_a values(20210002,1201);
+insert into lecture_a values(20210003,1201);
+insert into lecture_a values(20210004,1201);
+
+insert into lecture_a values(20210001,1203);
+insert into lecture_a values(20210002,1203);
+insert into lecture_a values(20210003,1203);
+insert into lecture_a values(20210004,1203);
+
+insert into lecture_a values(20210001,1202);
+insert into lecture_a values(20210002,1202);
+insert into lecture_a values(20210003,1202);
+insert into lecture_a values(20210004,1202);
+
+
+CREATE TABLE EXAM 
+(S_NO NUMBER(8,0), 
+S_NAME VARCHAR2(20 BYTE), 
+L_NO NUMBER(8,0), 
+MIDEX NUMBER(5,0), 
+FINALEX NUMBER(5,0), 
+TASK NUMBER(5,0), 
+TOTAL NUMBER(5,0), 
+SCORE VARCHAR2(5 BYTE));
