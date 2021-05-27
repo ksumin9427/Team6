@@ -29,7 +29,6 @@ if(session.getAttribute("id") != null){
                                &nbsp;&nbsp;&nbsp; <strong>키워드 검색</strong>&nbsp;
                                <select name="selectke">
                                    <option value="01">강의명검색</option>
-                                   <option value="02">교수이름검색</option>
                                    <option value="03">강의번호</option>
                                    <option value="04">강의요일</option>
                                </select>
